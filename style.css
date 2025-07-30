@@ -1,7 +1,98 @@
 @font-face {
   font-family: 'Font';
   src: url('./assets/font/NIAGSOL.TTF') format('truetype');
+  
 }
+/* PARTE SIMONE */
+.body-simone {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  
+}
+
+.barra-nera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: black;
+  
+}
+
+.logo img {
+  height: 100%;
+  width: auto;
+  display: block;
+  
+}
+
+
+.icone {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.icona-svg {
+  width: 24px;
+  height: 24px;
+  color: white;
+  transition: color 0.3s;
+}
+
+.barra-menu {
+  display: flex;
+  gap: 2rem;
+  background-color: inherit;
+  padding: 0.8rem 2rem;
+  
+}
+
+.nome-menu {
+  position: relative;
+}
+
+.nome-menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+.nome-menu a:hover {
+  color: #ff4747;
+}
+
+.nomi-film {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #f7f7f7;
+  padding: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nome-menu:hover .nomi-film {
+  display: flex;
+  flex-wrap: wrap;
+  width: 200px;
+}
+
+.nomi-film a {
+  display: inline-block;
+  width: 25%;
+  color: #333;
+  padding: 0.3rem 0.4rem;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nomi-film a:hover {
+  color: #000;
+}
+
 
 /* CAROLINA */
 .hero-section {
