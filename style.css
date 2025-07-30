@@ -10,14 +10,14 @@ body {
   font-family: 'Font', sans-serif;
   background: url('assets/images/sfondo-teatro.jpg') no-repeat center center fixed;
   background-size: cover;
-  padding: 30px;
+  
   color: white;
 }
 
 .card-container {
   column-width: 330px;
   column-gap: 10px;
-  padding: auto;
+  padding: 30px;
 }
 
 .card {
@@ -35,7 +35,7 @@ body {
   transform: scale(1.05);
 }
 
-/* Nasconde checkbox */
+/* Nasconde checkbox, comportamento momentaneo, adattarlo poi con javascript*/
 .toggle-expand {
   display: none;
 }
@@ -96,3 +96,100 @@ body {
 }
 
 /* FINE PARTE FEDERICO */
+
+/* INIZIO PARTE SALVATORE */
+.cinecards-footer {
+        background-color: #121212;
+        color: #cccccc;
+        display: flex;
+        justify-content: space-between;
+        padding: 1.5rem 2rem;
+        font-size: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      .cinecards-footer-section {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        min-width: 200px;
+        margin-bottom: 1rem;
+      }
+
+      .cinecards-footer a {
+        color: #cccccc;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .cinecards-footer a:hover {
+        color: #ffffff;
+      }
+
+      .cinecards-footer p {
+        margin: 0;
+      }
+
+      .cinecards-icon {
+        width: 24px;
+        height: 24px;
+        transition: transform 0.3s, filter 0.3s;
+      }
+
+      .cinecards-icon:hover {
+        transform: scale(1.2);
+        filter: brightness(1.5);
+      }
+
+      .cinecards-social-icons {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .cinecards-separator {
+        width: 80%;
+        height: 1px;
+        background-color: #333;
+        margin: 1rem auto;
+        display: none;
+      }
+      /* Media query per schermi medi (tablet) */
+      @media (max-width: 1024px) {
+        .cinecards-footer {
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: space-evenly;
+          gap: 2rem;
+          padding: 2.5rem 2rem;
+          font-size: 1.6rem;
+        }
+
+        .cinecards-footer-section {
+          min-width: 200px;
+          align-items: flex-start;
+        }
+      }
+
+      /* Media query per schermi piccoli */
+      @media (max-width: 768px) {
+        .cinecards-footer {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          padding: 2rem 1rem;
+        }
+        .cinecards-separator {
+          display: block;
+        }
+
+        .cinecards-footer-section {
+          align-items: center;
+          margin-bottom: 2rem;
+          position: relative;
+        }
+
+        .cinecards-social-icons {
+          justify-content: center;
+        }
+      }
