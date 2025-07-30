@@ -3,7 +3,99 @@
   src: url('./assets/font/NIAGSOL.TTF') format('truetype');
 }
 
+/* CAROLINA */
+.hero-section {
+  position: relative;
+  background-image: url("assets/images/superman.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 90vh;
+  color: white;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+}
 
+/* Overlay semi-trasparente per leggibilità */
+.hero-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 800px;
+  width: 100%;
+}
+
+.hero-title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero-button {
+  background-color: #e50914;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.hero-button:hover {
+  background-color: #b2060e;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .hero-button {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.5rem;
+  }
+
+  .hero-description {
+    font-size: 0.9rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .hero-button {
+    width: 100%;
+  }
+}
+
+/* FINE CAROLINA */
 /* INIZIO PARTE FEDERICO */
 body {
   margin: 0;
