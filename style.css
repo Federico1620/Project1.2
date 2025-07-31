@@ -9,20 +9,20 @@
   font-family: Arial, sans-serif;
   background-color: #ffffff;
 }
-
 .barra-nera {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: #000000;
-  border-bottom: 1px solid #222;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 70px;
+  background-color: #000;
 }
 
 .parte-sinistra {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 20px;
+  flex-grow: 1;
 }
 
 .logo {
@@ -34,12 +34,12 @@
   width: auto;
   display: block;
 }
-
 .menu-links {
   display: flex;
-  gap: 1.5rem;
+  gap: 55px;
   align-items: center;
-  margin-left: 80px;
+  justify-content: center;
+  flex-grow: 2;
 }
 
 .nome-menu {
@@ -91,7 +91,8 @@
 
 .icone {
   display: flex;
-  gap: 2.5rem;
+  gap: 15px;
+  align-items: center;
 }
 
 .icona-svg {
@@ -115,7 +116,7 @@
   background: transparent;
   border: none;
   padding: 0;
-  margin-left: 100px
+  margin: 0;
 }
 
 
@@ -130,7 +131,70 @@
 }
 
 
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 40px;
+}
+.logo svg {
+  height: 30px;  
+  width: auto;  
+}
 
+@media (max-width: 768px) {
+  .logo {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    order: 1;
+  }
+
+  .parte-sinistra {
+    flex-grow: 1;
+    justify-content: flex-start;
+    display: flex;
+  }
+
+  .menu-links {
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 200px;
+    background-color: #000;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 0;
+    margin: 0;
+    z-index: 1000;
+  }
+
+  .menu-links.active {
+    display: flex;
+  }
+
+  .menu-links .nome-menu {
+    width: 100%;
+  }
+
+  .menu-links .nome-menu a {
+    display: block;
+    padding: 10px 15px;
+    color: white;
+    text-align: left;
+    width: 100%;
+  }
+
+  .icone {
+    display: none;
+  }
+}
 
 /* CAROLINA */
 .hero-section {
