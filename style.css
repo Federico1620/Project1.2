@@ -1,7 +1,6 @@
 @font-face {
-  font-family: 'Font';
-  src: url('./assets/font/NIAGSOL.TTF') format('truetype');
-  
+  font-family: "Font";
+  src: url("./assets/font/NIAGSOL.TTF") format("truetype");
 }
 /* PARTE SIMONE */
 .body-simone {
@@ -46,7 +45,7 @@
   position: relative;
 }
 
-.nome-menu  a {
+.nome-menu a {
   color: white;
   text-decoration: none;
   font-weight: 500;
@@ -54,7 +53,7 @@
   transition: color 0.2s;
 }
 
-.nome-menu  a:hover {
+.nome-menu a:hover {
   color: #ff4747;
 }
 
@@ -105,38 +104,33 @@
   color: #ff4747;
 }
 
-.hamburger{
+.hamburger {
   /* qui quando faccio le media queries lo cambio, che sennò lo vediamo  anche sul pc e non capisco bene le distanze*/
-  display: none;   
+  display: none;
   flex-direction: column;
   justify-content: space-around;
-  width: 24px;   
+  width: 24px;
   height: 24px;
   background: transparent;
   border: none;
   padding: 0;
-  margin-left: 100px
+  margin-left: 100px;
 }
 
-
-.trattino{
-    width: 24px;
+.trattino {
+  width: 24px;
   height: 2px;
   background-color: white;
   border-radius: 2px;
   transition: all 0.3s ease;
   display: block;
-
 }
-
-
-
 
 /* CAROLINA */
 .hero-section {
   position: relative;
   background-image: url("assets/images/superman.jpg");
-  background-size:cover;
+  background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   height: 100vh;
@@ -177,7 +171,7 @@
 }
 
 .hero-button {
-  background-color: #9E0003;
+  background-color: #9e0003;
   color: white;
   border: none;
   padding: 0.8rem 1.5rem;
@@ -188,7 +182,7 @@
 }
 
 .hero-button:hover {
-  background-color: #9E0003;
+  background-color: #9e0003;
 }
 
 /* Responsive */
@@ -230,10 +224,11 @@
 /* INIZIO PARTE FEDERICO */
 body {
   margin: 0;
-  font-family: 'Font', sans-serif;
-  background: url('assets/images/sfondo-teatro.jpg') no-repeat center center fixed;
+  font-family: "Font", sans-serif;
+  background: url("assets/images/sfondo-teatro.jpg") no-repeat center center
+    fixed;
   background-size: cover;
-  
+
   color: white;
 }
 
@@ -322,97 +317,96 @@ body {
 
 /* INIZIO PARTE SALVATORE */
 .cinecards-footer {
-        background-color: #121212;
-        color: #cccccc;
-        display: flex;
-        justify-content: space-between;
-        padding: 1.5rem 2rem;
-        font-size: 1.5rem;
-        flex-wrap: wrap;
-      }
+  background-color: #121212;
+  color: #cccccc;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  font-size: 1.5rem;
+  flex-wrap: wrap;
+}
 
-      .cinecards-footer-section {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        min-width: 200px;
-        margin-bottom: 1rem;
-      }
+.cinecards-footer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 200px;
+  margin-bottom: 1rem;
+}
 
-      .cinecards-footer a {
-        color: #cccccc;
-        text-decoration: none;
-        transition: color 0.3s;
-      }
+.cinecards-footer a {
+  color: #cccccc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
 
-      .cinecards-footer a:hover {
-        color: #ffffff;
-      }
+.cinecards-footer a:hover {
+  color: #ffffff;
+}
 
-      .cinecards-footer p {
-        margin: 0;
-      }
+.cinecards-footer p {
+  margin: 0;
+}
 
-      .cinecards-icon {
-        width: 24px;
-        height: 24px;
-        transition: transform 0.3s, filter 0.3s;
-      }
+.cinecards-icon {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s, filter 0.3s;
+}
 
-      .cinecards-icon:hover {
-        transform: scale(1.2);
-        filter: brightness(1.5);
-      }
+.cinecards-icon:hover {
+  transform: scale(1.2);
+  filter: brightness(1.5);
+}
 
-      .cinecards-social-icons {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-      }
+.cinecards-social-icons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
 
-      .cinecards-separator {
-        width: 80%;
-        height: 1px;
-        background-color: #333;
-        margin: 1rem auto;
-        display: none;
-      }
-      /* Media query per schermi medi (tablet) */
-      @media (max-width: 1024px) {
-        .cinecards-footer {
-          flex-direction: row;
-          flex-wrap: wrap;
-          justify-content: space-evenly;
-          gap: 2rem;
-          padding: 2.5rem 2rem;
-          font-size: 1.6rem;
-        }
+.cinecards-separator {
+  width: 80%;
+  height: 1px;
+  background-color: #333;
+  margin: 1rem auto;
+  display: none;
+}
 
-        .cinecards-footer-section {
-          min-width: 200px;
-          align-items: flex-start;
-        }
-      }
+@media (max-width: 1024px) {
+  .cinecards-footer {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 2rem;
+    padding: 2.5rem 2rem;
+    font-size: 1.6rem;
+  }
 
-      /* Media query per schermi piccoli */
-      @media (max-width: 768px) {
-        .cinecards-footer {
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-          padding: 2rem 1rem;
-        }
-        .cinecards-separator {
-          display: block;
-        }
+  .cinecards-footer-section {
+    min-width: 200px;
+    align-items: flex-start;
+  }
+}
 
-        .cinecards-footer-section {
-          align-items: center;
-          margin-bottom: 2rem;
-          position: relative;
-        }
+@media (max-width: 768px) {
+  .cinecards-footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+  .cinecards-separator {
+    display: block;
+  }
 
-        .cinecards-social-icons {
-          justify-content: center;
-        }
-      }
+  .cinecards-footer-section {
+    align-items: center;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+
+  .cinecards-social-icons {
+    justify-content: center;
+  }
+}
