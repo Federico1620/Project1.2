@@ -19,11 +19,14 @@
   
 }
 
+.logo {
+  height: 60px;
+}
+
 .logo img {
   height: 100%;
   width: auto;
   display: block;
-  
 }
 
 
