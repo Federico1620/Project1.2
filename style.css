@@ -7,7 +7,7 @@
 .body-simone {
   margin: 0;
   font-family: Arial, sans-serif;
-  
+  background-color: #ffffff;
 }
 
 .barra-nera {
@@ -15,12 +15,18 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: black;
-  
+  background-color: #000000;
+  border-bottom: 1px solid #222;
+}
+
+.parte-sinistra {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 
 .logo {
-  height: 60px;
+  height: 40px;
 }
 
 .logo img {
@@ -29,6 +35,59 @@
   display: block;
 }
 
+.menu-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  margin-left: 80px;
+}
+
+.nome-menu {
+  position: relative;
+}
+
+.nome-menu  a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+.nome-menu  a:hover {
+  color: #ff4747;
+}
+
+.nomi-film {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #f7f7f7;
+  padding: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  width: 200px;
+  flex-wrap: wrap;
+}
+
+.nome-menu:hover .nomi-film {
+  display: flex;
+}
+
+.nomi-film a {
+  display: inline-block;
+  width: 50px;
+  color: #333;
+  padding: 0.3rem 0.4rem;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nomi-film a:hover {
+  color: #000;
+}
 
 .icone {
   display: flex;
@@ -42,59 +101,35 @@
   transition: color 0.3s;
 }
 
-.barra-menu {
-  display: flex;
-  gap: 2rem;
-  background-color: inherit;
-  padding: 0.8rem 2rem;
-  
-}
-
-.nome-menu {
-  position: relative;
-}
-
-.nome-menu a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1rem;
-  transition: color 0.2s;
-}
-
-.nome-menu a:hover {
+.icona-svg:hover {
   color: #ff4747;
 }
 
-.nomi-film {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #f7f7f7;
-  padding: 0.5rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.hamburger{
+  /* qui quando faccio le media queries lo cambio, che sennò lo vediamo  anche sul pc e non capisco bene le distanze*/
+  display: none;   
+  flex-direction: column;
+  justify-content: space-around;
+  width: 24px;   
+  height: 24px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-left: 100px
 }
 
-.nome-menu:hover .nomi-film {
-  display: flex;
-  flex-wrap: wrap;
-  width: 200px;
+
+.trattino{
+    width: 24px;
+  height: 2px;
+  background-color: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  display: block;
+
 }
 
-.nomi-film a {
-  display: inline-block;
-  width: 25%;
-  color: #333;
-  padding: 0.3rem 0.4rem;
-  font-size: 0.9rem;
-  text-decoration: none;
-  transition: color 0.2s;
-}
 
-.nomi-film a:hover {
-  color: #000;
-}
 
 
 /* CAROLINA */
