@@ -27,24 +27,23 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px; 
+  gap: 10px;
   height: 40px;
 }
-.logo svg{
+.logo svg {
   height: 40px;
   width: auto;
 }
 
-.logo-scritta{
+.logo-scritta {
   height: 20px;
   display: flex;
   align-items: center;
 }
-.logo-scritta svg{
+.logo-scritta svg {
   height: 30px;
   width: auto;
 }
-
 
 .nome-menu {
   position: relative;
@@ -69,7 +68,7 @@
   left: 0;
   background-color: #f7f7f7;
   width: 200px;
- flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .nome-menu:hover .nomi-film {
@@ -83,7 +82,6 @@
   padding: 0.3rem 0.4rem;
   font-size: 0.9rem;
   text-decoration: none;
-
 }
 
 .icone {
@@ -140,7 +138,6 @@
     display: none;
   }
 }
-
 
 /* CAROLINA */
 .hero-section {
