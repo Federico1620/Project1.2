@@ -25,21 +25,26 @@
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
   height: 40px;
 }
-
-.logo img {
-  height: 100%;
+.logo svg{
+  height: 40px;
   width: auto;
-  display: block;
 }
-.menu-links {
+
+.logo-scritta{
+  height: 20px;
   display: flex;
-  gap: 55px;
   align-items: center;
-  justify-content: center;
-  flex-grow: 2;
 }
+.logo-scritta svg{
+  height: 30px;
+  width: auto;
+}
+
 
 .nome-menu {
   position: relative;
@@ -63,11 +68,8 @@
   top: 100%;
   left: 0;
   background-color: #f7f7f7;
-  padding: 0.5rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 100;
   width: 200px;
-  flex-wrap: wrap;
+ flex-wrap: wrap;
 }
 
 .nome-menu:hover .nomi-film {
@@ -81,16 +83,12 @@
   padding: 0.3rem 0.4rem;
   font-size: 0.9rem;
   text-decoration: none;
-  transition: color 0.2s;
-}
 
-.nomi-film a:hover {
-  color: #000;
 }
 
 .icone {
   display: flex;
-  gap: 15px;
+  gap: 20px;
   align-items: center;
 }
 
@@ -98,7 +96,6 @@
   width: 24px;
   height: 24px;
   color: white;
-  transition: color 0.3s;
 }
 
 .icona-svg:hover {
@@ -108,14 +105,13 @@
 .hamburger {
   /* qui quando faccio le media queries lo cambio, che sennò lo vediamo  anche sul pc e non capisco bene le distanze*/
   display: none;
+  cursor: pointer;
   flex-direction: column;
   justify-content: space-around;
   width: 24px;
   height: 24px;
   background: transparent;
   border: none;
-  padding: 0;
-  margin: 0;
 }
 
 .trattino {
@@ -123,9 +119,28 @@
   height: 2px;
   background-color: white;
   border-radius: 2px;
-  transition: all 0.3s ease;
-  display: block;
 }
+.menu-links {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 2;
+}
+@media (max-width: 768px) {
+  .menu-links {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+    order: 3;
+    margin-left: auto;
+  }
+  .icone {
+    display: none;
+  }
+}
+
 
 /* CAROLINA */
 .hero-section {
