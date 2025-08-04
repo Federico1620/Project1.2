@@ -146,7 +146,7 @@
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  height: 100vh;
+  height: calc(100vh - 70px);
   color: white;
   display: flex;
   align-items: flex-end;
