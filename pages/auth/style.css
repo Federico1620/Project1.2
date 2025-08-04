@@ -1,0 +1,225 @@
+@font-face {
+  font-family: "Font";
+  src: url("./assets/font/NIAGSOL.TTF") format("truetype");
+}
+
+
+/* CAROLINA */
+body {
+  margin: 0;
+  font-family: "Font", sans-serif;
+  background: url("assets/images/sfondo-teatro.jpg") no-repeat center center
+    fixed;
+  background-size: cover;
+  color: white;
+}
+
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 1rem;
+  min-height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.login-container {
+  background: rgba(0, 0, 0, 0.85);
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 100%;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
+
+.login-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-family: "Font", sans-serif;
+  text-shadow: 1px 1px #000;
+  letter-spacing: 2px;
+}
+
+.login-form .form-group {
+  margin-bottom: 1.2rem;
+  text-align: left;
+  letter-spacing: 2px;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  
+}
+
+.login-form input {
+  width: 100%;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #333;
+  color: white;
+  
+}
+
+.login-form input::placeholder {
+  color: #aaa;
+}
+
+.form-btn {
+  width: 100%;
+  background-color: #9e0003;
+  border: none;
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  letter-spacing: 2px;
+  
+}
+
+.form-btn:hover {
+  background-color: #ff4747;
+}
+
+.login-footer {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #ccc;
+    letter-spacing: 2px;
+
+}
+
+.login-footer a {
+  color: #ff4747;
+  text-decoration: none;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+  
+}
+
+.logo-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.logo svg {
+  width: 30px;
+  height: auto;
+}
+
+.logo-scritta svg {
+  width: 60px;
+  height: auto;
+}
+
+/* FINE CAROLINA */
+/* SALVATORE */
+.cinecards-footer {
+  background-color: #121212;
+  color: #cccccc;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  font-size: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.cinecards-footer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 200px;
+  margin-bottom: 1rem;
+}
+
+.cinecards-footer a {
+  color: #cccccc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.cinecards-footer a:hover {
+  color: #ffffff;
+}
+
+.cinecards-footer p {
+  margin: 0;
+}
+
+.cinecards-icon {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.cinecards-icon:hover {
+  transform: scale(1.2);
+  filter: brightness(1.5);
+}
+
+.cinecards-social-icons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.cinecards-separator {
+  width: 80%;
+  height: 1px;
+  background-color: #333;
+  margin: 1rem auto;
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .cinecards-footer {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 2rem;
+    padding: 2.5rem 2rem;
+    font-size: 1.6rem;
+  }
+
+  .cinecards-footer-section {
+    min-width: 200px;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .cinecards-footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+  .cinecards-separator {
+    display: block;
+  }
+
+  .cinecards-footer-section {
+    align-items: center;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+
+  .cinecards-social-icons {
+    justify-content: center;
+  }
+}
+
