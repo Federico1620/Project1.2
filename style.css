@@ -67,8 +67,8 @@
   top: 100%;
   left: 0;
   background-color: #f7f7f7;
-  width: 200px;
-  flex-wrap: wrap;
+  width: auto;
+  
 }
 
 .nome-menu:hover .nomi-film {
