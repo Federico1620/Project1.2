@@ -53,12 +53,19 @@
   color: white;
   text-decoration: none;
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 16px;
   transition: color 0.2s;
 }
 
 .nome-menu a:hover {
   color: #ff4747;
+}
+.nome-menu:hover .nomi-film {
+  display: flex;        
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: auto;          
+  max-height: 300px;
 }
 
 .nomi-film {
@@ -67,8 +74,12 @@
   top: 100%;
   left: 0;
   background-color: #f7f7f7;
-  width: auto;
-  
+  width: 200px;          
+  padding: 10px 0;
+  flex-direction: column; 
+  flex-wrap: wrap;      
+  max-height: 300px;   
+  z-index: 1000;
 }
 
 .nome-menu:hover .nomi-film {
@@ -76,11 +87,10 @@
 }
 
 .nomi-film a {
-  display: inline-block;
-  width: 50px;
+  width: 50%;            
+  box-sizing: border-box;
+  padding: 5px 6px;
   color: #333;
-  padding: 0.3rem 0.4rem;
-  font-size: 0.9rem;
   text-decoration: none;
 }
 
