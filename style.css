@@ -138,6 +138,7 @@
 @media (max-width: 768px) {
   .menu-links {
     display: none;
+    flex-direction: row;
   }
   .hamburger {
     display: flex;
