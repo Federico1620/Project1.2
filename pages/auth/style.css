@@ -2,8 +2,152 @@
   font-family: "Font";
   src: url("./assets/font/NIAGSOL.TTF") format("truetype");
 }
+.body-simone {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+}
+.barra-nera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 70px;
+  background-color: #000;
+}
 
+.parte-sinistra {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-grow: 1;
+}
 
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 40px;
+}
+.logo svg {
+  height: 40px;
+  width: auto;
+}
+
+.logo-scritta {
+  height: 20px;
+  display: flex;
+  align-items: center;
+}
+.logo-scritta svg {
+  height: 30px;
+  width: auto;
+}
+
+.nome-menu {
+  position: relative;
+}
+
+.nome-menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.2s;
+}
+
+.nome-menu a:hover {
+  color: #ff4747;
+}
+.nome-menu:hover .nomi-film {
+  display: flex;        
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: auto;          
+  max-height: 300px;
+}
+
+.nomi-film {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #f7f7f7;
+  width: 200px;          
+  padding: 10px 0;
+  flex-direction: column; 
+  flex-wrap: wrap;      
+  max-height: 300px;   
+  z-index: 1000;
+}
+
+.nome-menu:hover .nomi-film {
+  display: flex;
+}
+
+.nomi-film a {
+  width: 50%;            
+  box-sizing: border-box;
+  padding: 5px 6px;
+  color: #333;
+  text-decoration: none;
+}
+
+.icone {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.icona-svg {
+  width: 24px;
+  height: 24px;
+  color: white;
+}
+
+.icona-svg:hover {
+  color: #ff4747;
+}
+
+.hamburger {
+  /* qui quando faccio le media queries lo cambio, che sennò lo vediamo  anche sul pc e non capisco bene le distanze*/
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+}
+
+.trattino {
+  width: 24px;
+  height: 2px;
+  background-color: white;
+  border-radius: 2px;
+}
+.menu-links {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 2;
+}
+@media (max-width: 768px) {
+  .menu-links {
+    display: none;
+    flex-direction: row;
+  }
+  .hamburger {
+    display: flex;
+    order: 3;
+    margin-left: auto;
+  }
+  .icone {
+    display: none;
+  }
+}
 /* CAROLINA */
 body {
   margin: 0;
@@ -20,7 +164,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 4rem 1rem;
-  min-height: 100vh;
+  min-height: calc(100vh - 70px);
   background: rgba(0, 0, 0, 0.6);
 }
 
