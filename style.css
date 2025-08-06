@@ -454,40 +454,54 @@ h2 {
   margin: 1rem auto;
   line-height: 1.6;
 }
-
-.modal {
+/* STILE POPUP  */
+.popup {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 999;
+  z-index: 1000;
 }
 
-.modal.hidden {
+.popup.hidden {
   display: none;
 }
 
-.modal-content {
-  background-color: #222;
-  color: white;
-  padding: 2rem;
-  border-radius: 10px;
-  width: 90%;
-  max-width: 500px;
-  text-align: center;
+.popup-content {
+  font-size: 20px;
+  letter-spacing: 1px;
+  background: rgb(33, 33, 33);
+  padding: 20px;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
   position: relative;
+  border-radius: 12px;
+}
+
+.popup-inner {
+  display: flex;
+  gap: 20px;
+}
+
+#popup-img {
+  width: 250px;
+  object-fit: cover;
+}
+
+.popup-details {
+  flex: 1;
 }
 
 .close-btn {
   position: absolute;
-  top: 12px;
-  right: 16px;
-  font-size: 24px;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
   cursor: pointer;
-  color: white;
 }

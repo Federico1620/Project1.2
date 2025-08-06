@@ -137,7 +137,7 @@
  <section>
     <h2>FILM</h2>
     <div class="scroll-row">
-      <div class="card">
+      <div class="card" data-title="Pulp Fiction">
         <img src="assets/images/PULP_FICTION.jpg" alt="Pulp Fiction" class="card-img" />
         <div class="card-footer">
           <h3 class="card-title">Pulp Fiction</h3>
@@ -147,21 +147,11 @@
           </div>
         </div>
       </div>
-      <div id="modal" class="modal hidden">
-  <div class="modal-content">
-    <span class="close-btn">&times;</span>
-    <h2 id="modal-title">Titolo Film</h2>
-    <p id="modal-description">Descrizione del film...</p>
-    <p id="modal-year">Anno: 1994</p>
-    <!-- Aggiungi altri dettagli se vuoi -->
-  </div>
-</div>
-
 
 
       <!-- Altre card film -->
-      <div class="card">
-        <img src="assets/images/il padrino.webp" alt="Il Padrino" class="card-img" />
+      <div class="card" data-title="Il Padrino">
+        <img src="assets/images/il_padrino.webp" alt="Il Padrino" class="card-img" />
         <div class="card-footer">
           <h3 class="card-title">Il Padrino</h3>
           <div class="card-buttons">
@@ -177,8 +167,8 @@
   <section>
     <h2>SERIE TV</h2>
     <div class="scroll-row">
-      <div class="card">
-        <img src="assets/images/breaking bad.jpg" alt="Breaking Bad" class="card-img" />
+      <div class="card" data-title="Breaking Bad">
+        <img src="assets/images/breaking_bad.jpg" alt="Breaking Bad" class="card-img" />
         <div class="card-footer">
           <h3 class="card-title">Breaking Bad</h3>
           <div class="card-buttons">
@@ -189,7 +179,7 @@
       </div>
      
       <!-- Altre card serie TV -->
-      <div class="card">
+      <div class="card" data-title="Dark">
         <img src="assets/images/dark.jpg" alt="Dark" class="card-img" />
         <div class="card-footer">
           <h3 class="card-title">Dark</h3>
@@ -240,6 +230,22 @@
         <a href="mailto:CineCards@gmail.com">CineCards@gmail.com</a>
       </div>
     </footer>
+    <!-- DIV POPUP -->
+    <div id="popup" class="popup hidden">
+      <div class="popup-content">
+        <span class="close-btn">X</span>
+        <div class="popup-inner">
+          <img src="" alt="" id="popup-img" />
+          <div class="popup-details">
+            <h2 id="popup-title"></h2>
+            <p id="popup-year"></p>
+            <p id="popup-genre"></p>
+            <p id="popup-regia"></p>
+            <p id="popup-description"></p>
+          </div>
+        </div>
+      </div>
+    </div>
     <script>
       // JAVASCRIPT PARTE SIMONE
       let hamburger = document.querySelector(".hamburger")
@@ -256,6 +262,78 @@
       })
 
     </script>
+    <script>
+    // JAVASCRIPT POPUP
+  const popup = document.getElementById("popup");
+  const popupImg = document.getElementById("popup-img");
+  const popupTitle = document.getElementById("popup-title");
+  const popupYear = document.getElementById("popup-year");
+  const popupGenre = document.getElementById("popup-genre");
+  const popupRegia = document.getElementById("popup-regia");
+  const popupDescription = document.getElementById("popup-description");
+  const closeBtn = document.querySelector(".close-btn");
+
+  // OGGETTO DI FILM
+  const movieData = {
+    "Pulp Fiction": {
+      img: "assets/images/PULP_FICTION.jpg",
+      year: 1994,
+      genre: "Poliziesco",
+      regia: "Quentin Tarantino",
+      description: "Pulp Fiction è un film cult del 1994 diretto da Quentin Tarantino, noto per la sua struttura non lineare e i dialoghi brillanti. Il film intreccia le storie di diversi personaggi legati al mondo della criminalità di Los Angeles: due killer, Vincent Vega e Jules Winnfield, la moglie del loro capo, Mia Wallace, un pugile, Butch Coolidge, e una coppia di rapinatori, Honey Bunny e Pumpkin. "
+    },
+    "Il Padrino": {
+      img: "assets/images/il_padrino.webp",
+      year: 1972,
+      genre: "Poliziesco, Gangster",
+      regia: "Francis Ford Coppola",
+      description: "Il Padrino (The Godfather) è un film del 1972 diretto da Francis Ford Coppola. È il primo film della trilogia de Il Padrino ed è basato sull'omonimo romanzo di Mario Puzo. Il film racconta la storia della famiglia Corleone, una potente famiglia mafiosa italoamericana, e in particolare l'ascesa al potere di Michael Corleone."
+    },
+    "Breaking Bad": {
+      img: "assets/images/breaking_bad.jpg",
+      year: 2008,
+      genre: "Drammatico",
+      regia: "Vince Gilligan",
+      description: "Breaking Bad è una serie televisiva drammatica statunitense creata da Vince Gilligan, andata in onda dal 2008 al 2013. La serie narra la storia di Walter White, un insegnante di chimica che, dopo aver ricevuto una diagnosi di cancro incurabile, inizia a produrre e vendere metanfetamina per garantire un futuro alla sua famiglia."
+    },
+    "Dark": {
+      img: "assets/images/dark.jpg",
+      year: 2017,
+      genre: "thriller, Fantascientifico",
+      regia: "Baran bo Odar, Jantje Friese",
+      description: "In Dark, la scomparsa di un ragazzo a Winden, una cittadina tedesca con una centrale nucleare, innesca una serie di eventi che rivelano misteri e segreti oscuri legati a quattro famiglie e ai loro viaggi nel tempo. Le indagini portano alla luce una complessa rete di relazioni e passati intrecciati, svelando un loop temporale che coinvolge intere generazioni e minaccia l'esistenza stessa. Il piano di Adam, un personaggio misterioso, mira a distruggere il ciclo temporale, ma per farlo deve sacrificare Martha e il bambino che porta in grembo, l'origine del loop. La serie esplora temi come il destino, il libero arbitrio, la manipolazione e la lotta contro un ciclo infinito, con un'ambientazione cupa e una trama intricata."
+    }
+  };
+
+  
+  document.querySelectorAll(".card").forEach(card => {
+    card.addEventListener("click", () => {
+      const title = card.dataset.title;
+      const data = movieData[title];
+
+      if (data) {
+        popupImg.src = data.img;
+        popupTitle.textContent = title;
+        popupYear.textContent = `Data:  ${data.year}`;
+        popupGenre.textContent = `Genere:  ${data.genre}`;
+        popupRegia.textContent = `Regia:  ${data.regia}`;
+        popupDescription.textContent = `Descrizione:  ${data.description}`;
+        popup.classList.remove("hidden");
+      }
+    });
+  });
+
+  // CHIUDE CLICCANDO LA X
+  closeBtn.addEventListener("click", () => {
+    popup.classList.add("hidden");
+  });
+  // CHIUDE CLICCANDO QUALSIASI PARTE
+  window.addEventListener("click", (event) => {
+  if (event.target === popup) {
+    popup.classList.add("hidden");
+  }
+});
+</script>
 </body>
 </html>
 </html>
