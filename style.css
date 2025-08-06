@@ -111,7 +111,6 @@
 }
 
 .hamburger {
-  /* qui quando faccio le media queries lo cambio, che sennò lo vediamo  anche sul pc e non capisco bene le distanze*/
   display: none;
   cursor: pointer;
   flex-direction: column;
@@ -140,8 +139,22 @@
     display: none;
     flex-direction: row;
   }
+  .menu-links.active {
+  display: flex;
+  flex-direction: column; 
+  gap: 20px;
+  background-color: #000; 
+  position: absolute;
+  top: 70px; 
+  left: 0;
+  width: 100%;
+  padding: 10px 20px;
+  z-index: 10000;
+}
+
+  
   .hamburger {
-    display: flex;
+    display: flex !important;
     order: 3;
     margin-left: auto;
   }
