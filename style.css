@@ -76,7 +76,7 @@
   width: 400px;          
   min-height: 600px;
   z-index: 1000;
-  background-color: white;
+  background-color: #4D4D4D;
   overflow-y: auto;
   transform: translate(-50%);
    
@@ -88,7 +88,7 @@
   flex-direction: column; 
   gap: 1px; 
   min-height: 600px;
-  background-color: white;
+  background-color: #4D4D4D;
  
 }
 
@@ -100,7 +100,7 @@
   width: 50%;            
   box-sizing: border-box;
   padding: 5px 6px;
-  color: #333;
+  color: white;
   text-decoration: none;
  
 }
