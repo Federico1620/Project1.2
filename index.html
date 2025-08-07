@@ -247,19 +247,6 @@
       </div>
     </div>
     <script>
-      // JAVASCRIPT PARTE SIMONE
-      let hamburger = document.querySelector(".hamburger")
-      let menuLinks = document.querySelector(".menu-links")
-      hamburger.addEventListener("click", function(){
-
-        if(menuLinks.style.display === "flex"){
-          menuLinks.style.display = "none"
-          
-        }else{
-          menuLinks.style.display = "flex"
-          
-        }
-      })
 
     </script>
     <script>
@@ -333,6 +320,15 @@
     popup.classList.add("hidden");
   }
 });
+      // JAVASCRIPT PARTE SIMONE
+  let hamburger = document.querySelector(".hamburger");
+  let menuLinks = document.querySelector(".menu-links");
+
+  hamburger.addEventListener("click", function(){
+  menuLinks.classList.toggle("active");
+  console.log("hamburger cliccato", menuLinks.classList.contains("active"));
+});
+
 </script>
 </body>
 </html>
