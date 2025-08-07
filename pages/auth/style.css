@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Font";
-  src: url("./assets/font/NIAGSOL.TTF") format("truetype");
+  src: url("../../assets/font/NIAGSOL.TTF") format("truetype");
 }
 .body-simone {
   margin: 0;
@@ -152,7 +152,7 @@
 body {
   margin: 0;
   font-family: "Font", sans-serif;
-  background: url("assets/images/sfondo-teatro.jpg") no-repeat center center
+  background: url("../../assets/images/sfondo-teatro.jpg") no-repeat center center
     fixed;
   background-size: cover;
   color: white;
