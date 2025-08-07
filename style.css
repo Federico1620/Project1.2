@@ -72,14 +72,24 @@
   display: none;
   position: absolute;
   top: 100%;
-  left: 0;
-  background-color: #f7f7f7;
-  width: 200px;          
-  padding: 10px 0;
-  flex-direction: column; 
-  flex-wrap: wrap;      
-  max-height: 300px;   
+  left: 50%;
+  width: 400px;          
+  min-height: 600px;
   z-index: 1000;
+  background-color: white;
+  overflow-y: auto;
+  transform: translate(-50%);
+   
+}
+
+.colonna1, .colonna2{
+  flex: 1; 
+  display: flex;
+  flex-direction: column; 
+  gap: 1px; 
+  min-height: 600px;
+  background-color: white;
+ 
 }
 
 .nome-menu:hover .nomi-film {
@@ -92,6 +102,7 @@
   padding: 5px 6px;
   color: #333;
   text-decoration: none;
+ 
 }
 
 .icone {
@@ -151,8 +162,6 @@
   padding-bottom: 20px;
   z-index: 10000;
 }
-
-  
   .hamburger {
     display: flex !important;
     order: 3;
@@ -160,6 +169,9 @@
   }
   .icone {
     display: none;
+  }
+    .nome-menu:hover .nomi-film {
+    display: none 
   }
 }
 
