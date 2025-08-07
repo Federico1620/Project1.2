@@ -163,7 +163,7 @@
   z-index: 10000;
 }
   .hamburger {
-    display: flex !important;
+    display: flex;
     order: 3;
     margin-left: auto;
   }
