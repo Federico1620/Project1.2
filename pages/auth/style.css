@@ -71,14 +71,24 @@
   display: none;
   position: absolute;
   top: 100%;
-  left: 0;
-  background-color: #f7f7f7;
-  width: 200px;          
-  padding: 10px 0;
-  flex-direction: column; 
-  flex-wrap: wrap;      
-  max-height: 300px;   
+  left: 50%;
+  width: 400px;          
+  min-height: 600px;
   z-index: 1000;
+  background-color: #4D4D4D;
+  overflow-y: auto;
+  transform: translate(-50%);
+   
+}
+
+.colonna1, .colonna2{
+  flex: 1; 
+  display: flex;
+  flex-direction: column; 
+  gap: 1px; 
+  min-height: 600px;
+  background-color: #4D4D4D;
+ 
 }
 
 .nome-menu:hover .nomi-film {
@@ -89,8 +99,9 @@
   width: 50%;            
   box-sizing: border-box;
   padding: 5px 6px;
-  color: #333;
+  color: white;
   text-decoration: none;
+ 
 }
 
 .icone {
@@ -110,7 +121,6 @@
 }
 
 .hamburger {
-  /* qui quando faccio le media queries lo cambio, che sennò lo vediamo  anche sul pc e non capisco bene le distanze*/
   display: none;
   cursor: pointer;
   flex-direction: column;
@@ -139,6 +149,18 @@
     display: none;
     flex-direction: row;
   }
+  .menu-links.active {
+  display: flex;
+  flex-direction: column; 
+  gap: 20px;
+  background-color: #000; 
+  position: absolute;
+  top: 70px; 
+  left: 0;
+  width: 100%;
+  padding-bottom: 20px;
+  z-index: 10000;
+}
   .hamburger {
     display: flex;
     order: 3;
@@ -147,7 +169,11 @@
   .icone {
     display: none;
   }
+    .nome-menu:hover .nomi-film {
+    display: none 
+  }
 }
+
 /* CAROLINA */
 body {
   margin: 0;
