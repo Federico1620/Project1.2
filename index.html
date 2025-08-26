@@ -219,7 +219,7 @@
 
 
 <!-- INIZIO PARTE FEDERICO -->
- <section>
+ <section id ="film">
     <h2>FILM</h2>
     <div class="scroll-row">
       <div class="card" data-title="Pulp Fiction">
@@ -249,7 +249,7 @@
     </div>
   </section>
 
-  <section>
+  <section id = "serieTv">
     <h2>SERIE TV</h2>
     <div class="scroll-row">
       <div class="card" data-title="Breaking Bad">
@@ -331,90 +331,7 @@
         </div>
       </div>
     </div>
-    <script>
-
-    </script>
-    <script>
-    // JAVASCRIPT POPUP
-  const popup = document.getElementById("popup");
-  const popupImg = document.getElementById("popup-img");
-  const popupTitle = document.getElementById("popup-title");
-  const popupYear = document.getElementById("popup-year");
-  const popupGenre = document.getElementById("popup-genre");
-  const popupRegia = document.getElementById("popup-regia");
-  const popupDescription = document.getElementById("popup-description");
-  const closeBtn = document.querySelector(".close-btn");
-
-  // OGGETTO DI FILM
-  const movieData = {
-    "Pulp Fiction": {
-      img: "assets/images/PULP_FICTION.jpg",
-      year: 1994,
-      genre: "Poliziesco",
-      regia: "Quentin Tarantino",
-      description: "Pulp Fiction è un film cult del 1994 diretto da Quentin Tarantino, noto per la sua struttura non lineare e i dialoghi brillanti. Il film intreccia le storie di diversi personaggi legati al mondo della criminalità di Los Angeles: due killer, Vincent Vega e Jules Winnfield, la moglie del loro capo, Mia Wallace, un pugile, Butch Coolidge, e una coppia di rapinatori, Honey Bunny e Pumpkin. "
-    },
-    "Il Padrino": {
-      img: "assets/images/il_padrino.webp",
-      year: 1972,
-      genre: "Poliziesco, Gangster",
-      regia: "Francis Ford Coppola",
-      description: "Il Padrino (The Godfather) è un film del 1972 diretto da Francis Ford Coppola. È il primo film della trilogia de Il Padrino ed è basato sull'omonimo romanzo di Mario Puzo. Il film racconta la storia della famiglia Corleone, una potente famiglia mafiosa italoamericana, e in particolare l'ascesa al potere di Michael Corleone."
-    },
-    "Breaking Bad": {
-      img: "assets/images/breaking_bad.jpg",
-      year: 2008,
-      genre: "Drammatico",
-      regia: "Vince Gilligan",
-      description: "Breaking Bad è una serie televisiva drammatica statunitense creata da Vince Gilligan, andata in onda dal 2008 al 2013. La serie narra la storia di Walter White, un insegnante di chimica che, dopo aver ricevuto una diagnosi di cancro incurabile, inizia a produrre e vendere metanfetamina per garantire un futuro alla sua famiglia."
-    },
-    "Dark": {
-      img: "assets/images/dark.jpg",
-      year: 2017,
-      genre: "thriller, Fantascientifico",
-      regia: "Baran bo Odar, Jantje Friese",
-      description: "In Dark, la scomparsa di un ragazzo a Winden, una cittadina tedesca con una centrale nucleare, innesca una serie di eventi che rivelano misteri e segreti oscuri legati a quattro famiglie e ai loro viaggi nel tempo. Le indagini portano alla luce una complessa rete di relazioni e passati intrecciati, svelando un loop temporale che coinvolge intere generazioni e minaccia l'esistenza stessa. Il piano di Adam, un personaggio misterioso, mira a distruggere il ciclo temporale, ma per farlo deve sacrificare Martha e il bambino che porta in grembo, l'origine del loop. La serie esplora temi come il destino, il libero arbitrio, la manipolazione e la lotta contro un ciclo infinito, con un'ambientazione cupa e una trama intricata."
-    }
-  };
-
-  
-  document.querySelectorAll(".card").forEach(card => {
-    card.addEventListener("click", () => {
-      const title = card.dataset.title;
-      const data = movieData[title];
-
-      if (data) {
-        popupImg.src = data.img;
-        popupTitle.textContent = title;
-        popupYear.textContent = `Data:  ${data.year}`;
-        popupGenre.textContent = `Genere:  ${data.genre}`;
-        popupRegia.textContent = `Regia:  ${data.regia}`;
-        popupDescription.textContent = `Descrizione:  ${data.description}`;
-        popup.classList.remove("hidden");
-      }
-    });
-  });
-
-  // CHIUDE CLICCANDO LA X
-  closeBtn.addEventListener("click", () => {
-    popup.classList.add("hidden");
-  });
-  // CHIUDE CLICCANDO QUALSIASI PARTE
-  window.addEventListener("click", (event) => {
-  if (event.target === popup) {
-    popup.classList.add("hidden");
-  }
-});
-      // JAVASCRIPT PARTE SIMONE
-  let hamburger = document.querySelector(".hamburger");
-  let menuLinks = document.querySelector(".menu-links");
-
-  hamburger.addEventListener("click", function(){
-  menuLinks.classList.toggle("active");
-  
-});
-
-</script>
+    <script src="index.js"></script>
 </body>
 </html>
 </html>
