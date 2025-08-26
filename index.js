@@ -8,6 +8,30 @@ const popupRegia = document.getElementById("popup-regia");
 const popupDescription = document.getElementById("popup-description");
 const closeBtn = document.querySelector(".close-btn");
 
+const divFilm = document.querySelector("#film > .scroll-row")
+console.log(divFilm)
+
+function renderCard(array){
+      console.log(array[0])
+      array.forEach(film => {
+          const card = ` <div class="card" data-title="${film.Title}">
+        <img src="${film.Poster}" alt="${film.Title}" class="card-img" />
+        <div class="card-footer">
+          <h3 class="card-title">${film.Title}</h3>
+          <div class="card-buttons">
+            <button class="btn"><i class="fa-solid fa-circle-play"></i></button>
+            <button class="btn"><i class="fa-solid fa-heart"></i></button>
+          </div>
+        </div>
+      </div>
+      `
+      console.log(card)
+      divFilm.innerHTML += card
+
+      })
+}
+
+
 // OGGETTO DI FILM
 const movieData = [];
 const arrFilm = [
@@ -43,7 +67,6 @@ async function renderFilm(titolo) {
     console.error(error);
   }
 }
-renderFilm("Goodfellas").then((result) => console.log(result));
 
 async function popolaFilm(array) {
   try {
@@ -51,38 +74,42 @@ async function popolaFilm(array) {
       const film = await renderFilm(titolo);
       movieData.push(film);
     });
+    return movieData
   } catch (error) {
     console.error(error);
   }
 }
-popolaFilm(arrFilm).then(() => console.log(movieData));
-document.querySelectorAll(".card").forEach((card) => {
-  card.addEventListener("click", () => {
-    const title = card.dataset.title;
-    const data = movieData[title];
 
-    if (data) {
-      popupImg.src = data.img;
-      popupTitle.textContent = title;
-      popupYear.textContent = `Data:  ${data.year}`;
-      popupGenre.textContent = `Genere:  ${data.genre}`;
-      popupRegia.textContent = `Regia:  ${data.regia}`;
-      popupDescription.textContent = `Descrizione:  ${data.description}`;
-      popup.classList.remove("hidden");
-    }
-  });
-});
+popolaFilm(arrFilm).then((result) => {
+  console.log(result)
+renderCard(result)});
+// document.querySelectorAll(".card").forEach((card) => {
+//   card.addEventListener("click", () => {
+//     const title = card.dataset.title;
+//     const data = movieData[title];
 
-// CHIUDE CLICCANDO LA X
-closeBtn.addEventListener("click", () => {
-  popup.classList.add("hidden");
-});
-// CHIUDE CLICCANDO QUALSIASI PARTE
-window.addEventListener("click", (event) => {
-  if (event.target === popup) {
-    popup.classList.add("hidden");
-  }
-});
+//     if (data) {
+//       popupImg.src = data.img;
+//       popupTitle.textContent = title;
+//       popupYear.textContent = `Data:  ${data.year}`;
+//       popupGenre.textContent = `Genere:  ${data.genre}`;
+//       popupRegia.textContent = `Regia:  ${data.regia}`;
+//       popupDescription.textContent = `Descrizione:  ${data.description}`;
+//       popup.classList.remove("hidden");
+//     }
+//   });
+// });
+
+// // CHIUDE CLICCANDO LA X
+// closeBtn.addEventListener("click", () => {
+//   popup.classList.add("hidden");
+// });
+// // CHIUDE CLICCANDO QUALSIASI PARTE
+// window.addEventListener("click", (event) => {
+//   if (event.target === popup) {
+//     popup.classList.add("hidden");
+//   }
+// });
 // JAVASCRIPT PARTE SIMONE
 let hamburger = document.querySelector(".hamburger");
 let menuLinks = document.querySelector(".menu-links");
@@ -90,3 +117,5 @@ let menuLinks = document.querySelector(".menu-links");
 hamburger.addEventListener("click", function () {
   menuLinks.classList.toggle("active");
 });
+
+
