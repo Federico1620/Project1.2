@@ -9,6 +9,7 @@ const popupDescription = document.getElementById("popup-description");
 const closeBtn = document.querySelector(".close-btn");
 const divFilm = document.querySelector("#film > .scroll-row");
 const divSerie = document.querySelector("#serie > .scroll-row");
+const preferiti = document.getElementsByClassName("preferiti");
 const movieData = [];
 const arrFilm = [
   "Inception",
@@ -51,26 +52,30 @@ function renderCard(array) {
     const series = array.filter((serie) => serie.Type === "series");
     console.log(series);
     films.forEach((film, index) => {
-      const card = ` <div class="card" data-index="${index}" data-title="${film.Title}">
+      const card = ` <div class="card">
+      <div class="card-header" data-index="${index}" data-title="${film.Title}">
                 <img src="${film.Poster}" alt="${film.Title}" class="card-img" />
+                </div>
                 <div class="card-footer">
                     <h3 class="card-title">${film.Title}</h3>
                     <div class="card-buttons">
                         <button class="btn"><i class="fa-solid fa-circle-play"></i></button>
-                        <button class="btn"><i class="fa-solid fa-heart"></i></button>
+                        <button class="btn preferiti" name ="${film.Title}"><i class="fa-solid fa-heart"></i></button>
                     </div>
                     </div>
                 </div>`;
       divFilm.innerHTML += card;
     });
     series.forEach((serie, index) => {
-      const card = ` <div class="card" data-index="${index}" data-title="${serie.Title}">
+      const card = ` <div class="card">
+                <div class="card-header" data-index="${index}" data-title="${serie.Title}">
                 <img src="${serie.Poster}" alt="${serie.Title}" class="card-img" />
+                </div>
                 <div class="card-footer">
                     <h3 class="card-title">${serie.Title}</h3>
                     <div class="card-buttons">
                         <button class="btn"><i class="fa-solid fa-circle-play"></i></button>
-                        <button class="btn"><i class="fa-solid fa-heart"></i></button>
+                        <button class="btn preferiti"name ="${serie.Title}"><i class="fa-solid fa-heart"></i></button>
                     </div>
                     </div>
                 </div>`;
@@ -84,7 +89,7 @@ function renderCard(array) {
 async function renderFilm(titolo) {
   try {
     const response = await fetch(
-      `https://www.omdbapi.com/?apikey=1b0c30bd&t=${titolo}`
+      `https://www.omdbapi.com/?apikey=bd9f8fae&t=${titolo}`
     );
     const data = await response.json();
     return data;
@@ -108,9 +113,19 @@ async function start() {
   const result = await popolaFilm(arrFilm);
   movieData.push(...result);
   renderCard(result);
+  //PER TUTTI I BOTTONI CUORE AGGIUNGE IL ROSSO SE SONO PRESENTI NEL LOCALSTORAGE
+  const filmPreferiti = JSON.parse(localStorage.getItem("preferiti")) || [];
+  for (let film of preferiti) {
+    const trovato = filmPreferiti.find((x) => x.Title === film.name);
+    if (trovato) {
+      film.style.color = "red";
+    } else {
+      film.style.color = "white";
+    }
+  }
   //AGGANCIAMO LA CLASSE .CARD E A OGNI CLICK SULLA CARD, IN BASE AL DATA-INDEX E ALLA POSIZIONE NELL'ARRAY MOVIEDATA,
   //CREA IL POP-UP DINAMICAMENTE
-  document.querySelectorAll(".card").forEach((card) => {
+  document.querySelectorAll(".card-header").forEach((card) => {
     card.addEventListener("click", () => {
       const data = movieData.find((d) => d.Title === card.dataset.title);
       if (data) {
@@ -124,6 +139,26 @@ async function start() {
       }
     });
   });
+  //PER TUTTI I BOTTONI CREA UN CLICK E CONTROLLA SE I FILM SONO PRESENTI
+  for (let film of preferiti) {
+    film.addEventListener("click", () => {
+      const filmPreferiti = JSON.parse(localStorage.getItem("preferiti")) || [];
+      const y = movieData.find((x) => x.Title === film.name);
+      const index = filmPreferiti.findIndex((x) => x.Title === y.Title);
+
+      if (index === -1) {
+        //SE NON E' PRESENTE AGGIUNGE IL COLORE ROSSO AL BOTTONE E LI AGGIUNGE NEI FILM PREFERITI[]
+        filmPreferiti.push(y);
+        film.style.color = "red";
+      } else {
+        filmPreferiti.splice(index, 1);
+        film.style.color = "white";
+      }
+
+      // SALVATAGGIO NEL LOCAL STORAGE
+      localStorage.setItem("preferiti", JSON.stringify(filmPreferiti));
+    });
+  }
 }
 // CHIUDE CLICCANDO LA X
 closeBtn.addEventListener("click", () => {
@@ -136,6 +171,7 @@ window.addEventListener("click", (event) => {
   }
 });
 start();
+
 // JAVASCRIPT PARTE SIMONE
 let hamburger = document.querySelector(".hamburger");
 let menuLinks = document.querySelector(".menu-links");
