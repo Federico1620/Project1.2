@@ -27,7 +27,6 @@ const arrFilm = [
   "Back to the Future",
   "Jurassic Park",
   "Star Wars",
-  "The Silence of th Lambs",
   "Goodfellas",
   "The Avengers",
   "Iron Man",
@@ -113,8 +112,7 @@ async function start() {
   //CREA IL POP-UP DINAMICAMENTE
   document.querySelectorAll(".card").forEach((card) => {
     card.addEventListener("click", () => {
-      const index = card.dataset.index;
-      const data = movieData[index];
+      const data = movieData.find((d) => d.Title === card.dataset.title);
       if (data) {
         popupImg.src = data.Poster;
         popupTitle.textContent = data.Title;
