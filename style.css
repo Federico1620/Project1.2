@@ -3,15 +3,7 @@
   src: url("./assets/font/NIAGSOL.TTF") format("truetype");
 }
 /* PER TENERE IL FOOTER FISSO */
-html, body {
-  height: 100%;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-}
-.contenuto-pagina {
-  flex: 1;
-}
+
 /* PARTE SIMONE */
 .body-simone {
   margin: 0;
@@ -397,6 +389,8 @@ h2 {
   padding: 1.5rem 2rem;
   font-size: 1.5rem;
   flex-wrap: wrap;
+  /* position: fixed;
+  bottom: 0; */
 }
 
 .cinecards-footer-section {
@@ -493,6 +487,7 @@ h2 {
 .contenuto-pagina {
   padding: 3rem 2rem;
   text-align: center;
+  min-height: 90vh;
 }
 .contenuto-pagina h1 {
   color: #ffffff;
