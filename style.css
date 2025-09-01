@@ -2,6 +2,16 @@
   font-family: "Font";
   src: url("./assets/font/NIAGSOL.TTF") format("truetype");
 }
+/* PER TENERE IL FOOTER FISSO */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.contenuto-pagina {
+  flex: 1;
+}
 /* PARTE SIMONE */
 .body-simone {
   margin: 0;

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Registrazione</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="icon" href="assets/images/Logo.svg" type="image/svg+xml">
@@ -181,7 +181,7 @@
             <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
           </svg>
         </a>
-        <a href="../auth/login.html">
+        <a href="./login.html">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                stroke-width="1.5" stroke="currentColor" class="icona-svg">
             <path stroke-linecap="round" stroke-linejoin="round"
@@ -193,7 +193,7 @@
   </div>
     
    
-    <a href="pages/auth/login.html"></a>
+    <a href="./login.html"></a>
     <section class="login">
         
         <div class="login-container">
@@ -243,8 +243,16 @@
                     </svg>
 
                 </div>
-                <h2 class="login-title">Accedi al tuo account</h2>
-                <form class="login-form" id ="login-form">
+                <h2 class="login-title">Registrati</h2>
+                <form class="login-form" id ="registrazione-form">
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input id="nome" type="text" required placeholder="Inserisci il tuo nome" />
+                    </div>
+                    <div class="form-group">
+                        <label for="cognome">Cognome</label>
+                        <input id="cognome" type="text" required placeholder="Inserisci il tuo cognome" />
+                    </div>
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input id="email" type="email" required placeholder="Inserisci la tua email" />
@@ -252,9 +260,10 @@
                     <div class="form-group">
                         <label for="password">Password</label>
                         <input id="password" type="password" required placeholder="Inserisci la password" />
+
                     </div>
-                    <button type="submit" class="form-btn">Accedi</button>
-                    <p class="login-footer">Non sei registrato? <a href="./registrazione.html">Crea un account</a></p>
+                    <button type="submit" class="form-btn">Registrati</button>
+                    <p class="login-footer">Sei registrato <a href="./login.html">Fai login</a></p>
                 </form>
             </div>
     </section>
@@ -264,7 +273,7 @@
             <a href="../nuovi.html">Scopri</a>
             <a href="#">Collezione</a>
             <a href="../preferiti.html">Preferiti</a>
-            <a href="#">Profilo</a>
+            <a href="dashboard.html">Profilo</a>
         </div>
 
         <div class="cinecards-separator"></div>
