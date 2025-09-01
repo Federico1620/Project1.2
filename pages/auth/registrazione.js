@@ -30,5 +30,8 @@ function registrazione(event) {
     inputPassword.value = "";
     message.textContent = "Utente registrato con successo!";
     formRegistrazione.appendChild(message);
+    setTimeout(() => {
+      window.location.href = "/pages/auth/login.html";
+    }, 2000);
   }
 }
