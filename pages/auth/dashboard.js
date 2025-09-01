@@ -1,7 +1,7 @@
 const content = document.querySelector(".contenuto-pagina");
 const user = JSON.parse(localStorage.getItem("user"));
 if (!user) {
-  window.location.href = "/pages/auth/login.html";
+  window.location.href = "./login.html";
 } else {
   const nome = document.createElement("p");
   const cognome = document.createElement("p");
@@ -13,6 +13,12 @@ if (!user) {
   content.appendChild(cognome);
   content.appendChild(email);
   const logout = document.createElement("button");
-  logout.addEventListener("click", () => localStorage.removeItem("user"));
+  logout.textContent = "Logout";
+  logout.addEventListener("click", () => {
+    localStorage.removeItem("user");
+    setTimeout(() => {
+      window.location.href = "../auth/login.html";
+    }, 2000);
+  });
   content.appendChild(logout);
 }

@@ -31,7 +31,7 @@ function registrazione(event) {
     message.textContent = "Utente registrato con successo!";
     formRegistrazione.appendChild(message);
     setTimeout(() => {
-      window.location.href = "/pages/auth/login.html";
+      window.location.href = "../auth/login.html";
     }, 2000);
   }
 }

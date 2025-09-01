@@ -17,7 +17,7 @@ function login(event) {
     formLogin.appendChild(message);
     localStorage.setItem("user", JSON.stringify(userExist));
     setTimeout(() => {
-      window.location.href = "/pages/auth/dashboard.html";
+      window.location.href = "../auth/dashboard.html";
     }, 2000);
   } else {
     message.textContent = "credenziali errate!";
