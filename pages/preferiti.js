@@ -101,10 +101,10 @@ buttonPreferiti.forEach((button) => {
     const films = preferiti.filter((film) => film.Type === "movie");
     const series = preferiti.filter((serie) => serie.Type === "series");
     if (films.length === 0) {
-      p.textContent = "Nessun film ancora aggiunto ai preferiti";
+      p.textContent = "Nessun Film ancora aggiunto ai preferiti";
     }
     if (series.length === 0) {
-      pS.textContent = "Nessun film ancora aggiunto ai preferiti";
+      pS.textContent = "Nessuna Serie TV ancora aggiunta ai preferiti";
     }
   });
 });
