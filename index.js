@@ -50,7 +50,6 @@ function renderCard(array) {
   try {
     const films = array.filter((film) => film.Type === "movie");
     const series = array.filter((serie) => serie.Type === "series");
-    console.log(series);
     films.forEach((film, index) => {
       const card = ` <div class="card">
       <div class="card-header" data-index="${index}" data-title="${film.Title}">

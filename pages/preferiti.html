@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Film Preferiti</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="../style.css" />
     <link rel="icon" href="/assets/images/Logo.svg" type="image/svg+xml" />
   </head>
@@ -14,7 +18,7 @@
       <div class="parte-sinistra">
         <div class="logo">
           <a href="../index.html">
-           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 111.87 151.16" width="150" height="auto">
+           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 111.87 151.16" width="150">
   <path fill="#fff" d="M0,0v151.16h30.77v-16.02c0-4.41,3.57-7.98,7.98-7.98h34.35c4.41,0,7.98,3.57,7.98,7.98v16.02h30.77V0h-30.77v16.16c0,4.44-3.6,8.03-8.03,8.03h-34.31c-4.41,0-7.98-3.57-7.98-7.98V0H0Z"/>
   <rect fill="#000" x="9.26" y="12.19" width="12.77" height="19.65"/>
   <rect fill="#000" x="30.77" y="33.48" width="50.32" height="84" rx="9" ry="9"/>
@@ -190,9 +194,20 @@
     </nav>
   </div>
     <main class="contenuto-pagina">
-      <h1><i class="fa-solid fa-heart"></i> Preferiti</h1>
-      <!-- QUI IN FUTURO CI SARANNO I FILM CON IL CUORICINO -->
-      <p>Nessun film ancora aggiunto ai preferiti</p>
+      <h1> P R E F E R I T I</h1>
+       <section id ="film">
+    <h2>FILM</h2>
+    <p id="paragrafoDaRimuovere">Nessun film ancora aggiunto ai preferiti</p>
+    <div class="scroll-row">
+    </div>
+  </section>
+
+  <section id = "serie">
+    <h2>SERIE TV</h2>
+    <p id="paragrafoDaRimuovereS">Nessuna serie tv ancora aggiunta ai preferiti</p>
+    <div class="scroll-row">
+    </div>
+  </section>
     </main>
     <footer class="cinecards-footer">
       <div class="cinecards-footer-section">
@@ -237,7 +252,24 @@
         <a href="mailto:CineCards@gmail.com">CineCards@gmail.com</a>
       </div>
     </footer>
+    <div id="popup" class="popup hidden">
+      <div class="popup-content">
+        <span class="close-btn">X</span>
+        <div class="popup-inner">
+          <img src="" alt="" id="popup-img" />
+          <div class="popup-details">
+            <h2 id="popup-title"></h2>
+            <p id="popup-year"></p>
+            <p id="popup-genre"></p>
+            <p id="popup-regia"></p>
+            <p id="popup-description"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="preferiti.js"></script>
  <script>
+  
     let hamburger = document.querySelector(".hamburger");
   let menuLinks = document.querySelector(".menu-links");
 
