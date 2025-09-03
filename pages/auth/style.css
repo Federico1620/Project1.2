@@ -87,7 +87,6 @@
   flex-direction: column; 
   gap: 1px; 
   min-height: 600px;
-  background-color: #4D4D4D;
  
 }
 
@@ -99,7 +98,6 @@
   width: 50%;            
   box-sizing: border-box;
   padding: 5px 6px;
-  color: white;
   text-decoration: none;
  
 }
