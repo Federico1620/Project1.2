@@ -75,11 +75,12 @@
   position: absolute;
   top: 100%;
   left: 50%;
-  width: 400px;          
-  min-height: 600px;
+  width: 300px;          
+  min-height: 400px;
   z-index: 1000;
+  /* con questo cambiamo il colore dello sfondo dei generi di film / serie tv */
   background-color: #4D4D4D;
-  overflow-y: auto;
+  overflow-y: hidden;
   transform: translate(-50%);
    
 }
@@ -102,6 +103,7 @@
   width: 50%;            
   box-sizing: border-box;
   padding: 5px 6px;
+  /* con questo sotto cambiamo colore dei generi dei film / serie tv */
   color: red;
   text-decoration: none;
  
