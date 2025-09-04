@@ -2,6 +2,13 @@
   font-family: "Font";
   src: url("./assets/font/NIAGSOL.TTF") format("truetype");
 }
+
+.montserrat-Font2 {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
 /* PER TENERE IL FOOTER FISSO */
 
 /* PARTE SIMONE */
@@ -63,10 +70,10 @@
   color: #ff4747;
 }
 .nome-menu:hover .nomi-film {
-  display: flex;        
+  display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  height: auto;          
+  height: auto;
   max-height: 300px;
 }
 
@@ -75,24 +82,23 @@
   position: absolute;
   top: 100%;
   left: 50%;
-  width: 300px;          
+  width: 300px;
   min-height: 400px;
   z-index: 1000;
   /* con questo cambiamo il colore dello sfondo dei generi di film / serie tv */
-  background-color: #4D4D4D;
+  background-color: #4d4d4d;
   overflow-y: hidden;
   transform: translate(-50%);
-   
 }
 
-.colonna1, .colonna2{
-  flex: 1; 
+.colonna1,
+.colonna2 {
+  flex: 1;
   display: flex;
-  flex-direction: column; 
-  gap: 1px; 
+  flex-direction: column;
+  gap: 1px;
   min-height: 600px;
   background-color: inherit;
- 
 }
 
 .nome-menu:hover .nomi-film {
@@ -100,13 +106,12 @@
 }
 
 .nomi-film a {
-  width: 50%;            
+  width: 50%;
   box-sizing: border-box;
   padding: 5px 6px;
   /* con questo sotto cambiamo colore dei generi dei film / serie tv */
   color: red;
   text-decoration: none;
- 
 }
 
 .icone {
@@ -155,17 +160,17 @@
     flex-direction: row;
   }
   .menu-links.active {
-  display: flex;
-  flex-direction: column; 
-  gap: 20px;
-  background-color: #000; 
-  position: absolute;
-  top: 70px; 
-  left: 0;
-  width: 100%;
-  padding-bottom: 20px;
-  z-index: 10000;
-}
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #000;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding-bottom: 20px;
+    z-index: 10000;
+  }
   .hamburger {
     display: flex;
     order: 3;
@@ -174,8 +179,8 @@
   .icone {
     display: none;
   }
-    .nome-menu:hover .nomi-film {
-    display: none 
+  .nome-menu:hover .nomi-film {
+    display: none;
   }
 }
 
@@ -378,7 +383,6 @@ h2 {
     grid-template-columns: repeat(1, 1fr);
   }
 }
-
 
 /* FINE PARTE FEDERICO */
 
