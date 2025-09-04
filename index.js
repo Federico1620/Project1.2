@@ -113,7 +113,7 @@ async function start() {
   movieData.push(...result);
   renderCard(result);
   //PER TUTTI I BOTTONI CUORE AGGIUNGE IL ROSSO SE SONO PRESENTI NEL LOCALSTORAGE
-  const filmPreferiti = JSON.parse(localStorage.getItem("preferiti")) || [];
+  const filmPreferiti = loadFavorites();
   for (let film of preferiti) {
     const trovato = filmPreferiti.find((x) => x.Title === film.name);
     if (trovato) {
@@ -141,7 +141,7 @@ async function start() {
   //PER TUTTI I BOTTONI CREA UN CLICK E CONTROLLA SE I FILM SONO PRESENTI
   for (let film of preferiti) {
     film.addEventListener("click", () => {
-      const filmPreferiti = JSON.parse(localStorage.getItem("preferiti")) || [];
+      const filmPreferiti = loadFavorites();
       const y = movieData.find((x) => x.Title === film.name);
       const index = filmPreferiti.findIndex((x) => x.Title === y.Title);
 
@@ -155,7 +155,7 @@ async function start() {
       }
 
       // SALVATAGGIO NEL LOCAL STORAGE
-      localStorage.setItem("preferiti", JSON.stringify(filmPreferiti));
+      saveFavorites(filmPreferiti);
     });
   }
 }

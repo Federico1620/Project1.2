@@ -1,4 +1,4 @@
-const preferiti = JSON.parse(localStorage.getItem("preferiti"));
+const preferiti = loadFavorites();
 // console.log(preferiti);
 
 const p = document.getElementById("paragrafoDaRimuovere");
@@ -90,7 +90,7 @@ buttonPreferiti.forEach((button) => {
 
     // rimuovo dal localStorage
     const nuovoArray = preferiti.filter((item) => item.Title !== title);
-    localStorage.setItem("preferiti", JSON.stringify(nuovoArray));
+    saveFavorites(nuovoArray);
 
     preferiti.length = 0; // COSI SVUOTIAMO L'ARRAY PREFERITI
     preferiti.push(...nuovoArray); // COSI AGGIORNIAMO L'ARRAY SENZA IL TITOLO CLICCATO
