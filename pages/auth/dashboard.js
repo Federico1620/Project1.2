@@ -1,19 +1,26 @@
 const content = document.querySelector(".contenuto-pagina");
+const main = document.getElementsByTagName("main");
 const user = JSON.parse(localStorage.getItem("user"));
 if (!user) {
   window.location.href = "./login.html";
 } else {
-  const nome = document.createElement("p");
-  const cognome = document.createElement("p");
-  const email = document.createElement("p");
-  nome.innerText = user.nome;
-  cognome.innerText = user.cognome;
-  email.innerText = user.email;
-  content.appendChild(nome);
-  content.appendChild(cognome);
-  content.appendChild(email);
+  const title = document.createElement("h2");
+  title.textContent = `Benvenuto nella tua Dashboard, ${user.nome}!`;
+  title.style.fontFamily = "Montserrat";
+  title.style.fontSize = "23px";
+  content.appendChild(title);
+  const info = document.createElement("div");
+  info.innerHTML = `
+  <p><strong>Nome:</strong> ${user.nome}</p>
+  <p><strong>Cognome:</strong> ${user.cognome}</p>
+  <p><strong>Email:</strong> ${user.email}</p>
+`;
+  info.style.fontFamily = "Montserrat";
+  content.appendChild(info);
   const logout = document.createElement("button");
   logout.textContent = "Logout";
+  logout.className = "form-btn";
+  logout.style.width = "200px";
   logout.addEventListener("click", () => {
     localStorage.removeItem("user");
     setTimeout(() => {
