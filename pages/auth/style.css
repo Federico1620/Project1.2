@@ -280,6 +280,11 @@ body {
   letter-spacing: 2px;
 }
 
+#login-page .login {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
 .login-form .form-group {
   margin-bottom: 1.2rem;
   text-align: left;
