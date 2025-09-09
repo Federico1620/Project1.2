@@ -1,7 +1,7 @@
-@font-face {
+/* @font-face {
   font-family: "Font";
   src: url("./assets/font/NIAGSOL.TTF") format("truetype");
-}
+} */
 .my-toast {
   font-family: "Montserrat";
 }
@@ -351,7 +351,7 @@
 /* INIZIO PARTE FEDERICO */
 body {
   margin: 0;
-  font-family: "Font", sans-serif;
+  font-family: "montserrat";
   background: url("assets/images/sfondo-teatro.jpg") no-repeat center center
     fixed;
   background-size: cover;
