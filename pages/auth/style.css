@@ -5,6 +5,12 @@
 .my-toast {
   font-family: "Montserrat";
 }
+.montserrat-Font2-400-italic {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: italic;
+}
 .montserrat-Font2-400 {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
