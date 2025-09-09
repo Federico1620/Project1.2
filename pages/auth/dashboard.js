@@ -12,7 +12,7 @@ if (!user) {
   content.appendChild(title);
   const info = document.createElement("div");
   info.innerHTML = `
-  <button class="form-btn credenziali">Cambia Credenziali</button>
+  <button class="form-btn credenziali" onclick="window.location.href='CambiaCredenziali.html'">Cambia Credenziali</button>
   <p><strong>Nome:</strong> ${user.nome}</p>
   <p><strong>Cognome:</strong> ${user.cognome}</p>
   <p><strong>Email:</strong> ${user.email}</p>
