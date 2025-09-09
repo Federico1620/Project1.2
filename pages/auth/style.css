@@ -5,6 +5,12 @@
 .my-toast {
   font-family: "Montserrat";
 }
+.montserrat-Font2-400-italic {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: italic;
+}
 .montserrat-Font2-400 {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
@@ -323,6 +329,9 @@ body {
   cursor: pointer;
   transition: background 0.3s ease;
   letter-spacing: 2px;
+}
+.credenziali {
+  width: 300px;
 }
 
 .form-btn:hover {
