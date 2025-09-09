@@ -109,10 +109,10 @@ buttonPreferiti.forEach((button) => {
     const films = preferiti.filter((film) => film.Type === "movie");
     const series = preferiti.filter((serie) => serie.Type === "series");
     if (films.length === 0) {
-      p.textContent = "Accedi per aggiungere Film ai preferiti";
+      p.textContent = "Nessun Film aggiunti ai preferiti";
     }
     if (series.length === 0) {
-      pS.textContent = "Accedi per aggiungere Serie TV ai preferiti";
+      pS.textContent = "Nessuna Serie Tv aggiunta ai preferiti";
     }
   });
 });
