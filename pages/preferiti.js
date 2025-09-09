@@ -87,7 +87,15 @@ buttonPreferiti.forEach((button) => {
   button.style.color = "red";
   button.addEventListener("click", () => {
     const title = button.dataset.title;
-
+    Toastify({
+      text: "RIMOSSO DAI PREFERITI!",
+      duration: 3000,
+      close: true,
+      className: "my-toast",
+      gravity: "top",
+      position: "right",
+      backgroundColor: "linear-gradient(to right, red, black)",
+    }).showToast();
     // rimuovo dal localStorage
     const nuovoArray = preferiti.filter((item) => item.Title !== title);
     saveFavorites(nuovoArray);
@@ -101,10 +109,10 @@ buttonPreferiti.forEach((button) => {
     const films = preferiti.filter((film) => film.Type === "movie");
     const series = preferiti.filter((serie) => serie.Type === "series");
     if (films.length === 0) {
-      p.textContent = "Nessun Film ancora aggiunto ai preferiti";
+      p.textContent = "Accedi per aggiungere Film ai preferiti";
     }
     if (series.length === 0) {
-      pS.textContent = "Nessuna Serie TV ancora aggiunta ai preferiti";
+      pS.textContent = "Accedi per aggiungere Serie TV ai preferiti";
     }
   });
 });

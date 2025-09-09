@@ -10,17 +10,30 @@ function login(event) {
       x.email.toLowerCase() === inputEmail.value.toLowerCase() &&
       x.password === inputPassword.value
   );
-  const message = document.createElement("p");
-  message.textContent = "";
   if (userExist) {
-    message.textContent = "login effettuato con successo";
-    formLogin.appendChild(message);
+    Toastify({
+      text: "LOGIN EFFETTUATO CON SUCCESSO!",
+      duration: 3000,
+      close: true,
+      className: "my-toast",
+      gravity: "top",
+      position: "right",
+      backgroundColor: "linear-gradient(to right, red, black)",
+    }).showToast();
     localStorage.setItem("user", JSON.stringify(userExist));
     setTimeout(() => {
       window.location.href = "../auth/dashboard.html";
     }, 2000);
   } else {
-    message.textContent = "credenziali errate!";
+    Toastify({
+      text: "CREDENZIALI ERRATE!",
+      duration: 2000,
+      close: true,
+      className: "my-toast",
+      gravity: "top",
+      position: "right",
+      backgroundColor: "linear-gradient(to right, red, black)",
+    }).showToast();
     formLogin.appendChild(message);
   }
 }

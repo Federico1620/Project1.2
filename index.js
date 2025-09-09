@@ -109,6 +109,8 @@ async function popolaFilm(array) {
 //FUNZIONE CHE FA PARTIRE TUTTO:
 //ASPETTA LA FUNZIONE POPOLAFILM, POPOLA L'ARRAY MOVIEDATA, PARTE LA FUNZIONE RENDERCARD.
 async function start() {
+  const user = JSON.parse(localStorage.getItem("user")) || null;
+  const isLogged = !!user; // true se loggato
   const result = await popolaFilm(arrFilm);
   movieData.push(...result);
   renderCard(result);
@@ -144,12 +146,45 @@ async function start() {
       const filmPreferiti = loadFavorites();
       const y = movieData.find((x) => x.Title === film.name);
       const index = filmPreferiti.findIndex((x) => x.Title === y.Title);
-
+      if (!isLogged) {
+        // SE NON LOGGATO ESCE IL MESSAGGIO TOAST DI ACCEDERE!
+        Toastify({
+          text: "ACCEDI PER AGGIUNGERE AI PREFERITI!",
+          duration: 3000,
+          close: true,
+          className: "my-toast",
+          gravity: "top",
+          position: "right",
+          backgroundColor: "linear-gradient(to right, red, black)",
+          onClick: () => {
+            window.location.href = "/Project1.2/pages/auth/login.html";
+          },
+        }).showToast();
+        return; //
+      }
       if (index === -1) {
         //SE NON E' PRESENTE AGGIUNGE IL COLORE ROSSO AL BOTTONE E LI AGGIUNGE NEI FILM PREFERITI[]
         filmPreferiti.push(y);
         film.style.color = "red";
+        Toastify({
+          text: "AGGIUNTO AI PREFERITI!",
+          duration: 3000,
+          close: true,
+          className: "my-toast",
+          gravity: "top",
+          position: "right",
+          backgroundColor: "linear-gradient(to right, red, black)",
+        }).showToast();
       } else {
+        Toastify({
+          text: "RIMOSSO DAI PREFERITI!",
+          duration: 3000,
+          close: true,
+          className: "my-toast",
+          gravity: "top",
+          position: "right",
+          backgroundColor: "linear-gradient(to right, red, black)",
+        }).showToast();
         filmPreferiti.splice(index, 1);
         film.style.color = "white";
       }

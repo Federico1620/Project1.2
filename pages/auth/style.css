@@ -2,6 +2,9 @@
   font-family: "Font";
   src: url("../../assets/font/NIAGSOL.TTF") format("truetype");
 }
+.my-toast {
+  font-family: "Montserrat";
+}
 .montserrat-Font2-400 {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;

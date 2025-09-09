@@ -22,6 +22,15 @@ if (!user) {
   logout.className = "form-btn";
   logout.style.width = "200px";
   logout.addEventListener("click", () => {
+    Toastify({
+      text: "LOGOUT EFFETTUATO CON SUCCESSO!",
+      duration: 2000,
+      close: true,
+      className: "my-toast",
+      gravity: "top",
+      position: "right",
+      backgroundColor: "linear-gradient(to right, red, black)",
+    }).showToast();
     localStorage.removeItem("user");
     setTimeout(() => {
       window.location.href = "../auth/login.html";

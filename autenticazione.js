@@ -13,6 +13,7 @@ buttonLogin.addEventListener("click", () => {
 function getUserKey() {
   const user = JSON.parse(localStorage.getItem("user"));
   if (!user) return null;
+
   return `preferiti_${user.email}`; // SOLO SE LOGGATO CARICA PREFERITI
 }
 

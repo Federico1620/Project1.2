@@ -16,11 +16,17 @@ function registrazione(event) {
     password: inputPassword.value,
   };
   const userExisit = users.find((user) => user.email === inputEmail.value);
-  const message = document.createElement("p");
-  message.textContent = "";
+
   if (userExisit) {
-    message.textContent = "Utente già iscritto!";
-    formRegistrazione.appendChild(message);
+    Toastify({
+      text: "UTENTE GIA INSCRITTO!",
+      duration: 3000,
+      close: true,
+      className: "my-toast",
+      gravity: "top",
+      position: "right",
+      backgroundColor: "linear-gradient(to right, red, black)",
+    }).showToast();
   } else {
     users.push(user);
     localStorage.setItem("users", JSON.stringify(users));
@@ -28,8 +34,15 @@ function registrazione(event) {
     inputCognome.value = "";
     inputEmail.value = "";
     inputPassword.value = "";
-    message.textContent = "Utente registrato con successo!";
-    formRegistrazione.appendChild(message);
+    Toastify({
+      text: "UTENTE REGISTRATO CON SUCCESSO!",
+      duration: 3000,
+      close: true,
+      className: "my-toast",
+      gravity: "top",
+      position: "right",
+      backgroundColor: "linear-gradient(to right, red, black)",
+    }).showToast();
     setTimeout(() => {
       window.location.href = "../auth/login.html";
     }, 2000);
