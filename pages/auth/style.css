@@ -325,6 +325,9 @@ body {
   transition: background 0.3s ease;
   letter-spacing: 2px;
 }
+.credenziali {
+  width: 300px;
+}
 
 .form-btn:hover {
   background-color: #ff4747;

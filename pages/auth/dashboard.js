@@ -5,12 +5,14 @@ if (!user) {
   window.location.href = "./login.html";
 } else {
   const title = document.createElement("h2");
+
   title.textContent = `Benvenuto nella tua Dashboard, ${user.nome}!`;
   title.style.fontFamily = "Montserrat";
   title.style.fontSize = "23px";
   content.appendChild(title);
   const info = document.createElement("div");
   info.innerHTML = `
+  <button class="form-btn credenziali">Cambia Credenziali</button>
   <p><strong>Nome:</strong> ${user.nome}</p>
   <p><strong>Cognome:</strong> ${user.cognome}</p>
   <p><strong>Email:</strong> ${user.email}</p>
