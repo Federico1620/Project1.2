@@ -1,6 +1,4 @@
 const userLoggato = JSON.parse(localStorage.getItem("user"));
-console.log(userLoggato);
-
 const emailCredenziali = document.getElementById("email");
 const passwordNuova = document.getElementById("new-password");
 const passwordConferma = document.getElementById("confirm-password");
