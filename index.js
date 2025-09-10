@@ -88,7 +88,7 @@ function renderCard(array) {
 async function renderFilm(titolo) {
   try {
     const response = await fetch(
-      `https://www.omdbapi.com/?apikey=b1ee0065&t=${titolo}`
+      `https://www.omdbapi.com/?apikey=8e73d393&t=${titolo}`
     );
     const data = await response.json();
     return data;
