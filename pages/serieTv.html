@@ -161,7 +161,7 @@
             <path stroke-linecap="round" stroke-linejoin="round"
                   d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
           </svg>
-        </>
+        
       </div>
     </nav>
   </div>
@@ -240,9 +240,7 @@ const popupGenre = document.getElementById("popup-genre");
 const popupRegia = document.getElementById("popup-regia");
 const popupDescription = document.getElementById("popup-description");
 const closeBtn = document.querySelector(".close-btn");
-
 const divSerie = document.getElementById("film-container");
-
 const preferitiClass = "preferiti";
 
 const genereMap = {
@@ -265,27 +263,18 @@ const genereMap = {
   "Western": "Western",
   "Guerra": "War",
   "Sportivo": "Sport",
-
   "Famiglia": "Family",
   "Cortometraggio": "Short",
-
-
-
   "Cinema d’autore": "Art",
   "Indipendente": "Indie"
-
 };
 
 const arrSerie = [
-
-
   "Breaking Bad", "Game of Thrones", "Stranger Things", "The Witcher",
   "Friends", "The Office", "Sherlock", "The Mandalorian",
   "House of the Dragon", "Loki", "Peaky Blinders", "Vikings",
-
   "Money Heist", "Umbrella Academy", "Lucifer", "Dexter",
   "Westworld", "The Boys", "Arcane", "Chernobyl"
-
 ];
 
 let serieData = [];
@@ -344,8 +333,7 @@ function renderCard(array) {
     btn.style.color = seriePreferiti.find(x => x.Title === btn.name) ? "red" : "white";
 
     btn.addEventListener("click", e => {
-      e.stopPropagation(); 
-
+      e.stopPropagation();
       const serie = serieData.find(s => s.Title === btn.name);
       const index = seriePreferiti.findIndex(x => x.Title === serie.Title);
 
@@ -384,32 +372,37 @@ async function start() {
   const promises = arrSerie.map(t => fetchSerie(t));
   serieData = await Promise.all(promises);
 
+  const params = new URLSearchParams(window.location.search);
+  const genereURL = params.get("genere");
+  let serieFiltrate = serieData;
 
-  renderCard(serieData);
+  if (genereURL && genereMap[genereURL]) {
+    const genereInglese = genereMap[genereURL];
+    serieFiltrate = serieData.filter(s => s.Genre &&
+      s.Genre.split(",").map(g => g.trim().toLowerCase()).includes(genereInglese.toLowerCase())
+    );
+  }
 
+  renderCard(serieFiltrate);
 
-
-  const genereLinks = document.querySelectorAll(".nomi-film a");
-  genereLinks.forEach(link => {
+  document.querySelectorAll(".nomi-film a").forEach(link => {
     link.addEventListener("click", e => {
       e.preventDefault();
-      const genereCliccato = e.target.textContent;
-      const genereIngleseClick = genereMap[genereCliccato] || null;
-
-      let serieFiltrate = serieData;
-      if (genereIngleseClick) {
-        serieFiltrate = serieData.filter(s => s.Genre &&
-          s.Genre.split(",").map(g => g.trim().toLowerCase()).includes(genereIngleseClick.toLowerCase())
+      const genereSelezionato = e.target.textContent;
+      const genereInglese = genereMap[genereSelezionato] || null;
+      let filtrate = serieData;
+      if (genereInglese) {
+        filtrate = serieData.filter(s => s.Genre &&
+          s.Genre.split(",").map(g => g.trim().toLowerCase()).includes(genereInglese.toLowerCase())
         );
       }
-
-      renderCard(serieFiltrate);
+      renderCard(filtrate);
+      history.replaceState(null, "", `?genere=${genereSelezionato}`);
     });
   });
 }
 
 start();
-
 
 
     let hamburger = document.querySelector(".hamburger");
