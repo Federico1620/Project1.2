@@ -28,3 +28,9 @@ function saveFavorites(favorites) {
   if (!key) return; // SE NON LOGGATO NON SALVARE I PREFERITI
   localStorage.setItem(key, JSON.stringify(favorites));
 }
+let hamburger = document.querySelector(".hamburger");
+let menuLinks = document.querySelector(".menu-links");
+
+hamburger.addEventListener("click", function () {
+  menuLinks.classList.toggle("active");
+});

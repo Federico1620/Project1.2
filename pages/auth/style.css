@@ -81,53 +81,21 @@
   font-weight: 500;
   font-size: 16px;
   transition: color 0.2s;
-}
-
-.nome-menu a:hover {
-  color: #ff4747;
-}
-.nome-menu:hover .nomi-film {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  height: auto;
-  max-height: 300px;
-}
-
-.nomi-film {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  width: 400px;
-  min-height: 600px;
-  z-index: 1000;
-  background-color: #4d4d4d;
-  overflow-y: auto;
-  transform: translate(-50%);
-}
-
-.nome-menu {
   position: relative;
-}
-
-.nome-menu a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 16px;
-  transition: color 0.2s;
+  padding-right: 15px;
+  display: inline-flex;
+  align-items: center;
 }
 
 .nome-menu a:hover {
   color: #ff4747;
 }
-.nome-menu:hover .nomi-film {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  height: auto;
-  max-height: 300px;
+
+.freccia {
+  margin-left: 5px;
+  font-size: 0.7em;
+  transition: transform 0.3s ease;
+  user-select: none;
 }
 
 .nomi-film {
@@ -135,47 +103,42 @@
   position: absolute;
   top: 100%;
   left: 50%;
-  width: 300px;
+  width: 800px;
   min-height: 400px;
-  z-index: 1000;
-  /* con questo cambiamo il colore dello sfondo dei generi di film / serie tv */
-  background-color: #4d4d4d;
+  background-color: black;
   overflow-y: hidden;
-  transform: translate(-50%);
+  transform: translateX(-50%);
+  z-index: 1000;
+  border-radius: 5px;
+  padding: 15px 20px;
 }
 
-.colonna1,
-.colonna2 {
+.nome-menu:hover .nomi-film {
+  display: flex;
+  flex-direction: row;
+}
+
+.colonna1, .colonna2 {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 1px;
-  min-height: 600px;
+  gap: 10px;
   background-color: inherit;
-}
-
-.nome-menu:hover .nomi-film {
-  display: flex;
+  min-height: auto;
 }
 
 .nomi-film a {
-  width: 50%;
-  box-sizing: border-box;
-  padding: 5px 6px;
-  /* con questo sotto cambiamo colore dei generi dei film / serie tv */
-  color: red;
+  color: white;
   text-decoration: none;
+  padding: 6px 8px;
+  font-size: 14px;
+  width: auto;
+  white-space: nowrap;
+  transition: color 0.2s;
 }
 
-.nome-menu:hover .nomi-film {
-  display: flex;
-}
-
-.nomi-film a {
-  width: 50%;
-  box-sizing: border-box;
-  padding: 5px 6px;
-  text-decoration: none;
+.nomi-film a:hover {
+  color: #ff4747;
 }
 
 .icone {
@@ -218,6 +181,30 @@
   justify-content: center;
   flex-grow: 2;
 }
+
+.toggle-dropdown {
+  display: none;
+}
+
+.freccia-dropdown {
+  cursor: pointer;
+  margin-left: 5px;
+  user-select: none;
+  font-size: 0.8em;
+  transition: transform 0.3s ease;
+  display: none;
+}
+.login-telefoni {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .login-telefoni {
+    display: block;
+  }
+}
+
+
 @media (max-width: 768px) {
   .menu-links {
     display: none;
@@ -246,8 +233,31 @@
   .nome-menu:hover .nomi-film {
     display: none;
   }
+  
+  .freccia-dropdown {
+    display: inline-block;
+  }
+  .toggle-dropdown:checked + .freccia-dropdown + .nomi-film {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: calc(100% + 40px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px; 
+    min-height: auto;
+    background-color: black;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-y: auto;
+    flex-wrap: wrap;
+    z-index: 1000;
+  }
+  .colonna1, .colonna2 {
+    flex: 1 1 50%;
+    min-width: 140px;
+  }
 }
-
 /* CAROLINA */
 body {
   margin: 0;

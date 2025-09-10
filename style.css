@@ -109,7 +109,7 @@
   left: 50%;
   width: 800px;
   min-height: 400px;
-  background-color: black;
+  background-color: #00000099;
   overflow-y: hidden;
   transform: translateX(-50%);
   z-index: 1000;
@@ -198,6 +198,16 @@
   transition: transform 0.3s ease;
   display: none;
 }
+.login-telefoni {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .login-telefoni {
+    display: block;
+  }
+}
+
 
 @media (max-width: 768px) {
   .menu-links {
@@ -231,11 +241,11 @@
   .freccia-dropdown {
     display: inline-block;
   }
-  .toggle-dropdown:checked + .freccia-dropdown + .nomi-film {
+   .toggle-dropdown:checked + .freccia-dropdown + .nomi-film {
     display: flex;
     flex-direction: row;
     position: absolute;
-    top: 100%;
+    top: calc(100% + 40px);
     left: 50%;
     transform: translateX(-50%);
     width: 500px; 
