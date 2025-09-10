@@ -88,7 +88,7 @@ function renderCard(array) {
 async function renderFilm(titolo) {
   try {
     const response = await fetch(
-      `https://www.omdbapi.com/?i=tt3896198&apikey=b1ee0065&t=${titolo}`
+      `https://www.omdbapi.com/?apikey=b1ee0065&t=${titolo}`
     );
     const data = await response.json();
     return data;
@@ -206,10 +206,10 @@ window.addEventListener("click", (event) => {
 });
 start();
 
-// JAVASCRIPT PARTE SIMONE
-let hamburger = document.querySelector(".hamburger");
-let menuLinks = document.querySelector(".menu-links");
+// // JAVASCRIPT PARTE SIMONE
+// let hamburger = document.querySelector(".hamburger");
+// let menuLinks = document.querySelector(".menu-links");
 
-hamburger.addEventListener("click", function () {
-  menuLinks.classList.toggle("active");
-});
+// hamburger.addEventListener("click", function () {
+//   menuLinks.classList.toggle("active");
+// });
