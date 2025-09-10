@@ -1,4 +1,4 @@
-// // JAVASCRIPT POPUP
+// JAVASCRIPT POPUP
 const popup = document.getElementById("popup");
 const popupImg = document.getElementById("popup-img");
 const popupTitle = document.getElementById("popup-title");

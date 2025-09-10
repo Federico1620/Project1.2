@@ -1,6 +1,4 @@
-console.log("JS caricato");
 const formRegistrazione = document.getElementById("registrazione-form");
-console.log("Form trovato:", formRegistrazione);
 const inputNome = document.getElementById("nome");
 const inputCognome = document.getElementById("cognome");
 const inputEmail = document.getElementById("email");
@@ -9,7 +7,6 @@ const inputPassword = document.getElementById("password");
 const users = JSON.parse(localStorage.getItem("users")) || [];
 
 formRegistrazione.addEventListener("submit", (event) => {
-  console.log("Submit intercettato");
   registrazione(event);
 });
 function registrazione(event) {
@@ -19,7 +16,19 @@ function registrazione(event) {
   const email = inputEmail.value.trim();
   const password = inputPassword.value.trim();
   const user = { nome, cognome, email, password };
-
+  //CONTROLLO SULL ESISTENZA DEI CAMPI
+  if (!nome || !cognome || !email || !password) {
+    Toastify({
+      text: "COMPILA TUTTI I CAMPI!",
+      duration: 3000,
+      close: true,
+      className: "my-toast",
+      gravity: "top",
+      position: "right",
+      backgroundColor: "linear-gradient(to right, red, black)",
+    }).showToast();
+    return;
+  }
   //CONTROLLO SU NOME E COGNOME, MINIMO 2 CARATTERI E SOLO LETTERE
   const nomeRegex = /^[a-zA-ZàèéìòùÀÈÉÌÒÙ' -]{2,}$/;
   if (!nomeRegex.test(nome)) {
@@ -46,19 +55,7 @@ function registrazione(event) {
     }).showToast();
     return;
   }
-  //CONTROLLO SULL ESISTENZA DEI CAMPI
-  if (!nome || !cognome || !email || !password) {
-    Toastify({
-      text: "COMPILA TUTTI I CAMPI!",
-      duration: 3000,
-      close: true,
-      className: "my-toast",
-      gravity: "top",
-      position: "right",
-      backgroundColor: "linear-gradient(to right, red, black)",
-    }).showToast();
-    return;
-  }
+
   //CONTROLLO SULLA FORMA DELL'EMAIL (QUALCOSA@QUALCOSA.QUALCOSA)
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
@@ -87,8 +84,8 @@ function registrazione(event) {
     }).showToast();
     return;
   }
-  const userExisit = users.find((user) => user.email === email);
-  if (userExisit) {
+  const userExist = users.find((user) => user.email === email);
+  if (userExist) {
     Toastify({
       text: "UTENTE GIA INSCRITTO!",
       duration: 3000,
