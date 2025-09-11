@@ -87,6 +87,7 @@ function renderCard(array) {
     divSerie.innerHTML += card;
   });
 
+  // Pop-up click
   document.querySelectorAll(".card-header").forEach(card => {
     card.addEventListener("click", e => {
       e.preventDefault();
@@ -103,6 +104,7 @@ function renderCard(array) {
     });
   });
 
+  // Impedisce click sul titolo di aprire pop-up
   document.querySelectorAll(".card-title").forEach(title => {
     title.addEventListener("click", e => {
       e.preventDefault();
@@ -110,7 +112,9 @@ function renderCard(array) {
     });
   });
 
+  // Cuore preferiti
   Array.from(document.getElementsByClassName(preferitiClass)).forEach(btn => {
+    // colore iniziale del cuore
     btn.style.color = loadFavorites().find(x => x.Title === btn.name) ? "red" : "white";
 
     btn.addEventListener("click", e => {
@@ -139,12 +143,22 @@ function renderCard(array) {
 
       if (index === -1) {
         seriePreferiti.push(serie);
-        btn.style.color = "red";
-        Toastify({ text: "AGGIUNTO AI PREFERITI!", duration: 3000, close: true, backgroundColor: "linear-gradient(to right, red, black)" }).showToast();
+        btn.style.color = "red"; // cuore rosso quando aggiunto
+        Toastify({
+          text: "AGGIUNTO AI PREFERITI!",
+          duration: 3000,
+          close: true,
+          backgroundColor: "linear-gradient(to right, red, black)"
+        }).showToast();
       } else {
         seriePreferiti.splice(index, 1);
-        btn.style.color = "white";
-        Toastify({ text: "RIMOSSO DAI PREFERITI!", duration: 3000, close: true, backgroundColor: "linear-gradient(to right, red, black)" }).showToast();
+        btn.style.color = "white"; // cuore bianco quando rimosso
+        Toastify({
+          text: "RIMOSSO DAI PREFERITI!",
+          duration: 3000,
+          close: true,
+          backgroundColor: "linear-gradient(to right, red, black)"
+        }).showToast();
       }
 
       saveFavorites(seriePreferiti);
