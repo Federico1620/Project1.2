@@ -26,7 +26,7 @@ function login(event) {
     }, 2000);
   } else {
     Toastify({
-      text: "CREDENZIALI ERRATE!",
+      text: "CREDENZIALI ERRATE O UTENTE NON PRESENTE!",
       duration: 2000,
       close: true,
       className: "my-toast",
