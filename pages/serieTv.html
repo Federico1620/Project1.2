@@ -71,32 +71,32 @@
   <label for="toggle-serie" class="freccia-dropdown">&#9662;</label>
             <div class="nomi-film">
               <div class="colonna1">
-                <a href="#">Azione</a>
-                <a href="#">Avventura</a>
-                <a href="#">Animazione</a>
-                <a href="#">Biografico</a>
-                <a href="#">Commedia</a>
-                <a href="#">Documentario</a>
-                <a href="#">Drammatico</a>
-                <a href="#">Fantascienza</a>
-                <a href="#">Fantasy</a>
-                <a href="#">Giallo</a>
-                <a href="#">Horror</a>
-                <a href="#">Musicale</a>
+                <a href="film.html?genere=Azione">Azione</a>
+                <a href="film.html?genere=Avventura">Avventura</a>
+                <a href="film.html?genere=Animazione">Animazione</a>
+                <a href="film.html?genere=Biografico">Biografico</a>
+                <a href="film.html?genere=Commedia">Commedia</a>
+                <a href="film.html?genere=Documentario">Documentario</a>
+                <a href="film.html?genere=Drammatico">Drammatico</a>
+                <a href="film.html?genere=Fantascienza">Fantascienza</a>
+                <a href="film.html?genere=Fantasy">Fantasy</a>
+                <a href="film.html?genere=Giallo">Giallo</a>
+                <a href="film.html?genere=Horror">Horror</a>
+                <a href="film.html?genere=Musicale">Musicale</a>
               </div>
 
               <div class="colonna2">
-                <a href="#">Poliziesco</a>
-                <a href="#">Romantico</a>
-                <a href="#">Storico</a>
-                <a href="#">Thriller</a>
-                <a href="#">Western</a>
-                <a href="#">Guerra</a>
-                <a href="#">Sportivo</a>
-                <a href="#">Famiglia</a>
-                <a href="#">Cortometraggio</a>
-                <a href="#">Cinema d’autore</a>
-                <a href="#">Indipendente</a>
+              <a href="film.html?genere=Poliziesco">Poliziesco</a>
+              <a href="film.html?genere=Romantico">Romantico</a>
+              <a href="film.html?genere=Storico">Storico</a>
+              <a href="film.html?genere=Thriller">Thriller</a>
+              <a href="film.html?genere=Western">Western</a>
+              <a href="film.html?genere=Guerra">Guerra</a>
+              <a href="film.html?genere=Sportivo">Sportivo</a>
+              <a href="film.html?genere=Famiglia">Famiglia</a>
+              <a href="film.html?genere=Cortometraggio">Cortometraggio</a>
+              <a href="film.html?genere=Cinema d’autore">Cinema d’autore</a>
+              <a href="film.html?genere=Indipendente">Indipendente</a>
               </div>
                </div>
           </div>
@@ -231,186 +231,6 @@
       </div>
     </div>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
- <script>
-const popup = document.getElementById("popup");
-const popupImg = document.getElementById("popup-img");
-const popupTitle = document.getElementById("popup-title");
-const popupYear = document.getElementById("popup-year");
-const popupGenre = document.getElementById("popup-genre");
-const popupRegia = document.getElementById("popup-regia");
-const popupDescription = document.getElementById("popup-description");
-const closeBtn = document.querySelector(".close-btn");
-const divSerie = document.getElementById("film-container");
-const preferitiClass = "preferiti";
-
-const genereMap = {
-  "Azione": "Action",
-  "Avventura": "Adventure",
-  "Animazione": "Animation",
-  "Biografico": "Biography",
-  "Commedia": "Comedy",
-  "Documentario": "Documentary",
-  "Drammatico": "Drama",
-  "Fantascienza": "Sci-Fi",
-  "Fantasy": "Fantasy",
-  "Giallo": "Mystery",
-  "Horror": "Horror",
-  "Musicale": "Music",
-  "Poliziesco": "Crime",
-  "Romantico": "Romance",
-  "Storico": "History",
-  "Thriller": "Thriller",
-  "Western": "Western",
-  "Guerra": "War",
-  "Sportivo": "Sport",
-  "Famiglia": "Family",
-  "Cortometraggio": "Short",
-  "Cinema d’autore": "Art",
-  "Indipendente": "Indie"
-};
-
-const arrSerie = [
-  "Breaking Bad", "Game of Thrones", "Stranger Things", "The Witcher",
-  "Friends", "The Office", "Sherlock", "The Mandalorian",
-  "House of the Dragon", "Loki", "Peaky Blinders", "Vikings",
-  "Money Heist", "Umbrella Academy", "Lucifer", "Dexter",
-  "Westworld", "The Boys", "Arcane", "Chernobyl"
-];
-
-let serieData = [];
-
-async function fetchSerie(titolo) {
-  try {
-    const res = await fetch(`https://www.omdbapi.com/?apikey=8e73d393&t=${titolo}&type=series`);
-    const data = await res.json();
-    return data;
-  } catch (err) {
-    console.error(err);
-  }
-}
-
-function renderCard(array) {
-  divSerie.innerHTML = "";
-  const daMostrare = array.slice(0, 8);
-  daMostrare.forEach(serie => {
-    const card = `
-      <div class="card">
-        <div class="card-header" data-title="${serie.Title}">
-          <img src="${serie.Poster}" alt="${serie.Title}" class="card-img" />
-        </div>
-        <div class="card-footer">
-          <h3 class="card-title">${serie.Title}</h3>
-          <div class="card-buttons">
-            <button class="btn"><i class="fa-solid fa-circle-play"></i></button>
-            <button class="btn ${preferitiClass}" name="${serie.Title}"><i class="fa-solid fa-heart"></i></button>
-          </div>
-        </div>
-      </div>`;
-    divSerie.innerHTML += card;
-  });
-
-  document.querySelectorAll(".card-header").forEach(card => {
-    card.addEventListener("click", e => {
-      e.preventDefault();
-      const data = serieData.find(d => d.Title === card.dataset.title);
-      if (data) {
-        popupImg.src = data.Poster;
-        popupTitle.textContent = data.Title;
-        popupYear.textContent = `Anno: ${data.Year}`;
-        popupGenre.textContent = `Genere: ${data.Genre}`;
-        popupRegia.textContent = `Regia: ${data.Director}`;
-        popupDescription.textContent = `Descrizione: ${data.Plot}`;
-        popup.classList.remove("hidden");
-      }
-    });
-  });
-
-  const user = JSON.parse(localStorage.getItem("user")) || null;
-  const isLogged = !!user;
-  const seriePreferiti = JSON.parse(localStorage.getItem("preferiti")) || [];
-
-  Array.from(document.getElementsByClassName(preferitiClass)).forEach(btn => {
-    btn.style.color = seriePreferiti.find(x => x.Title === btn.name) ? "red" : "white";
-
-    btn.addEventListener("click", e => {
-      e.stopPropagation();
-      const serie = serieData.find(s => s.Title === btn.name);
-      const index = seriePreferiti.findIndex(x => x.Title === serie.Title);
-
-      if (!isLogged) {
-        Toastify({
-          text: "ACCEDI PER AGGIUNGERE AI PREFERITI!",
-          duration: 3000,
-          close: true,
-          gravity: "top",
-          position: "right",
-          backgroundColor: "linear-gradient(to right, red, black)",
-          onClick: () => { window.location.href = "/Project1.2/pages/auth/login.html"; }
-        }).showToast();
-        return;
-      }
-
-      if (index === -1) {
-        seriePreferiti.push(serie);
-        btn.style.color = "red";
-        Toastify({ text: "AGGIUNTO AI PREFERITI!", duration: 3000, close: true, backgroundColor: "linear-gradient(to right, red, black)" }).showToast();
-      } else {
-        seriePreferiti.splice(index, 1);
-        btn.style.color = "white";
-        Toastify({ text: "RIMOSSO DAI PREFERITI!", duration: 3000, close: true, backgroundColor: "linear-gradient(to right, red, black)" }).showToast();
-      }
-
-      localStorage.setItem("preferiti", JSON.stringify(seriePreferiti));
-    });
-  });
-}
-
-closeBtn.addEventListener("click", () => popup.classList.add("hidden"));
-window.addEventListener("click", e => { if(e.target === popup) popup.classList.add("hidden"); });
-
-async function start() {
-  const promises = arrSerie.map(t => fetchSerie(t));
-  serieData = await Promise.all(promises);
-
-  const params = new URLSearchParams(window.location.search);
-  const genereURL = params.get("genere");
-  let serieFiltrate = serieData;
-
-  if (genereURL && genereMap[genereURL]) {
-    const genereInglese = genereMap[genereURL];
-    serieFiltrate = serieData.filter(s => s.Genre &&
-      s.Genre.split(",").map(g => g.trim().toLowerCase()).includes(genereInglese.toLowerCase())
-    );
-  }
-
-  renderCard(serieFiltrate);
-
-  document.querySelectorAll(".nomi-film a").forEach(link => {
-    link.addEventListener("click", e => {
-      e.preventDefault();
-      const genereSelezionato = e.target.textContent;
-      const genereInglese = genereMap[genereSelezionato] || null;
-      let filtrate = serieData;
-      if (genereInglese) {
-        filtrate = serieData.filter(s => s.Genre &&
-          s.Genre.split(",").map(g => g.trim().toLowerCase()).includes(genereInglese.toLowerCase())
-        );
-      }
-      renderCard(filtrate);
-      history.replaceState(null, "", `?genere=${genereSelezionato}`);
-    });
-  });
-}
-
-start();
-
-
-    let hamburger = document.querySelector(".hamburger");
-  let menuLinks = document.querySelector(".menu-links");
-
-  hamburger.addEventListener("click", function(){
-  menuLinks.classList.toggle("active");
-});
-</script>
+ <script src="serieTv.js"></script>
   </body>
 </html>

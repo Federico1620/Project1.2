@@ -45,7 +45,6 @@ const arrFilm = [
   "Better Call Saul",
   "The Mandalorian",
 ];
-//FUNZIONE CHE FILTRA ARRFILM E CREA LA CARD AGGIUNGENDO DIRETTAMENTE IL CODICE HTML AL DIV CREATO
 function renderCard(array) {
   try {
     const films = array.filter((film) => film.Type === "movie");
@@ -96,7 +95,6 @@ async function renderFilm(titolo) {
     console.error(error);
   }
 }
-//FUNZIONE CHE PASSA AD OGNI FILM LA FUNZIONE RENDERFILM E RISOLTA CON PROMISE.ALL
 async function popolaFilm(array) {
   try {
     const promises = array.map((titolo) => renderFilm(titolo));
@@ -124,8 +122,7 @@ async function start() {
       film.style.color = "white";
     }
   }
-  //AGGANCIAMO LA CLASSE .CARD E A OGNI CLICK SULLA CARD, IN BASE AL DATA-INDEX E ALLA POSIZIONE NELL'ARRAY MOVIEDATA,
-  //CREA IL POP-UP DINAMICAMENTE
+
   document.querySelectorAll(".card-header").forEach((card) => {
     card.addEventListener("click", () => {
       const data = movieData.find((d) => d.Title === card.dataset.title);
@@ -140,14 +137,12 @@ async function start() {
       }
     });
   });
-  //PER TUTTI I BOTTONI CREA UN CLICK E CONTROLLA SE I FILM SONO PRESENTI
   for (let film of preferiti) {
     film.addEventListener("click", () => {
       const filmPreferiti = loadFavorites();
       const y = movieData.find((x) => x.Title === film.name);
       const index = filmPreferiti.findIndex((x) => x.Title === y.Title);
       if (!isLogged) {
-        // SE NON LOGGATO ESCE IL MESSAGGIO TOAST DI ACCEDERE!
         Toastify({
           text: "ACCEDI PER AGGIUNGERE AI PREFERITI!",
           duration: 3000,
@@ -163,7 +158,6 @@ async function start() {
         return; //
       }
       if (index === -1) {
-        //SE NON E' PRESENTE AGGIUNGE IL COLORE ROSSO AL BOTTONE E LI AGGIUNGE NEI FILM PREFERITI[]
         filmPreferiti.push(y);
         film.style.color = "red";
         Toastify({
@@ -189,7 +183,6 @@ async function start() {
         film.style.color = "white";
       }
 
-      // SALVATAGGIO NEL LOCAL STORAGE
       saveFavorites(filmPreferiti);
     });
   }
@@ -206,10 +199,10 @@ window.addEventListener("click", (event) => {
 });
 start();
 
-// // JAVASCRIPT PARTE SIMONE
-// let hamburger = document.querySelector(".hamburger");
-// let menuLinks = document.querySelector(".menu-links");
+// JAVASCRIPT PARTE SIMONE
+let hamburger = document.querySelector(".hamburger");
+let menuLinks = document.querySelector(".menu-links");
 
-// hamburger.addEventListener("click", function () {
-//   menuLinks.classList.toggle("active");
-// });
+hamburger.addEventListener("click", function () {
+  menuLinks.classList.toggle("active");
+});
