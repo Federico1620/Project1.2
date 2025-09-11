@@ -198,11 +198,3 @@ window.addEventListener("click", (event) => {
   }
 });
 start();
-
-// JAVASCRIPT PARTE SIMONE
-let hamburger = document.querySelector(".hamburger");
-let menuLinks = document.querySelector(".menu-links");
-
-hamburger.addEventListener("click", function () {
-  menuLinks.classList.toggle("active");
-});
