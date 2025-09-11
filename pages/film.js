@@ -122,7 +122,7 @@ function saveFavorites(array) {
 async function renderFilm(titolo) {
   try {
     const response = await fetch(
-      `https://www.omdbapi.com/?apikey=bd9f8fae&t=${titolo}`
+      `https://www.omdbapi.com/?apikey=b1ee0065&t=${titolo}`
     );
     const data = await response.json();
     return data;
@@ -224,6 +224,9 @@ function renderCard(array) {
           gravity: "top",
           position: "right",
           backgroundColor: "linear-gradient(to right, red, black)",
+          onClick: () => {
+            window.location.href = "/Project1.2/pages/auth/login.html";
+          },
         }).showToast();
         return;
       }

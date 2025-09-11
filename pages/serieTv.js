@@ -122,7 +122,7 @@ function saveFavorites(array) {
 async function fetchSerie(titolo) {
   try {
     const res = await fetch(
-      `https://www.omdbapi.com/?apikey=bd9f8fae&t=${titolo}&type=series`
+      `https://www.omdbapi.com/?apikey=b1ee0065&t=${titolo}&type=series`
     );
     const data = await res.json();
     return data;
@@ -225,6 +225,9 @@ function renderCard(array) {
           gravity: "top",
           position: "right",
           backgroundColor: "linear-gradient(to right, red, black)",
+          onClick: () => {
+            window.location.href = "/Project1.2/pages/auth/login.html";
+          },
           onClick: () => {
             window.location.href = "/Project1.2/pages/auth/login.html";
           },
