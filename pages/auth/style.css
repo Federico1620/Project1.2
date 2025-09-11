@@ -98,14 +98,14 @@
   user-select: none;
 }
 
-.nomi-film {
+  .nomi-film {
   display: none;
   position: absolute;
   top: 100%;
   left: 50%;
   width: 800px;
   min-height: 400px;
-  background-color: black;
+  background-color: #00000099;
   overflow-y: hidden;
   transform: translateX(-50%);
   z-index: 1000;

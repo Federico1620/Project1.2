@@ -38,30 +38,80 @@ const genereMap = {
 
 const arrFilm = [
   "Inception",
-  "Interstellar",
   "The Dark Knight",
-  "The Godfather",
-  "Pulp Fiction",
-  "Fight Club",
-  "The Matrix",
-  "Forrest Gump",
-  "The Lord of the Rings",
-  "The Shawshank Redemption",
   "Gladiator",
-  "Titanic",
-  "Avatar",
-  "Back to the Future",
   "Jurassic Park",
-  "Star Wars",
-  "Goodfellas",
-  "The Avengers",
-  "Iron Man",
+  "Avatar",
+  "The Lord of the Rings",
+  "Toy Story",
+  "Up",
+  "Shrek",
   "Schindler's List",
+  "The Theory of Everything",
+  "Bohemian Rhapsody",
+  "Forrest Gump",
+  "The Grand Budapest Hotel",
+  "The Mask",
+  "March of the Penguins",
+  "Won’t You Be My Neighbor?",
+  "Free Solo",
+  "Fight Club",
+  "The Shawshank Redemption",
+  "A Beautiful Mind",
+  "Interstellar",
+  "The Matrix",
+  "Blade Runner 2049",
+  "Harry Potter",
+  "The Hobbit",
+  "Pan’s Labyrinth",
+  "Se7en",
+  "Zodiac",
+  "Gone Girl",
+  "It",
+  "Get Out",
+  "A Quiet Place",
+  "La La Land",
+  "The Greatest Showman",
+  "Moulin Rouge!",
+  "The Godfather",
+  "Goodfellas",
+  "Heat",
+  "Titanic",
+  "Pride & Prejudice",
+  "The Notebook",
+  "Braveheart",
+  "12 Years a Slave",
+  "Gladiator",
+  "Shutter Island",
+  "Gone Baby Gone",
+  "Mystic River",
+  "Django Unchained",
+  "The Good, the Bad and the Ugly",
+  "Unforgiven",
+  "Saving Private Ryan",
+  "Hacksaw Ridge",
+  "1917",
+  "Remember the Titans",
+  "Rocky",
+  "Moneyball",
+  "Finding Nemo",
+  "The Lion King",
+  "Coco",
+  "Piper",
+  "Bao",
+  "Paperman",
+  "Birdman",
+  "The Master",
+  "Mulholland Drive",
+  "Moonlight",
+  "Lady Bird",
+  "The Lighthouse",
 ];
 
 let movieData = [];
 
 function loadFavorites() {
+  if (!user || !user.email) return [];
   return JSON.parse(localStorage.getItem(`preferiti_${user.email}`)) || [];
 }
 
@@ -72,7 +122,7 @@ function saveFavorites(array) {
 async function renderFilm(titolo) {
   try {
     const response = await fetch(
-      `https://www.omdbapi.com/?apikey=8e73d393&t=${titolo}`
+      `https://www.omdbapi.com/?apikey=bd9f8fae&t=${titolo}`
     );
     const data = await response.json();
     return data;
@@ -80,11 +130,6 @@ async function renderFilm(titolo) {
     console.error(error);
   }
 }
-
-// async function popolaFilm(array) {
-//   const promises = array.map((titolo) => renderFilm(titolo));
-//   return await Promise.all(promises);
-// }
 
 function renderCard(array) {
   divFilm.innerHTML = "";
@@ -102,12 +147,39 @@ function renderCard(array) {
         <div class="card-footer">
           <h3 class="card-title">${film.Title}</h3>
           <div class="card-buttons">
-            <button class="btn"><i class="fa-solid fa-circle-play"></i></button>
-            <button class="btn preferiti" name="${film.Title}"><i class="fa-solid fa-heart"></i></button>
+            <button type="button" class="btn circle-play">
+            <i class="fa-solid fa-circle-play"></i>
+            </button>
+            <button type="button" class="btn preferiti" name="${film.Title}"><i class="fa-solid fa-heart"></i></button>
           </div>
         </div>
       </div>`;
     divFilm.innerHTML += card;
+  });
+
+  document.querySelectorAll(".circle-play").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      console.log("Play cliccato, nessun redirect");
+    });
+  });
+
+  document.querySelectorAll(".card-title").forEach((title) => {
+    title.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      console.log("Titolo cliccato, nessun redirect");
+    });
+  });
+  document.querySelectorAll(".card-footer").forEach((footer) => {
+    footer.addEventListener("click", (e) => {
+      if (!e.target.closest("button") && !e.target.closest(".card-title")) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log("Click su card-footer ignorato");
+      }
+    });
   });
 
   document.querySelectorAll(".card-header").forEach((card) => {
@@ -125,8 +197,6 @@ function renderCard(array) {
         popupDescription.textContent = `Descrizione: ${data.Plot}`;
         popup.classList.remove("hidden");
       }
-      // const cardTitle = card.closest(".card").querySelector(".card-title");
-      // if (cardTitle) cardTitle.style.textDecoration = "none";
     });
   });
 
@@ -134,7 +204,6 @@ function renderCard(array) {
     title.addEventListener("click", (e) => {
       e.preventDefault();
       e.stopPropagation();
-      // title.style.textDecoration = "none";
     });
   });
 
@@ -155,9 +224,6 @@ function renderCard(array) {
           gravity: "top",
           position: "right",
           backgroundColor: "linear-gradient(to right, red, black)",
-          onClick: () => {
-            window.location.href = "/Project1.2/pages/auth/login.html";
-          },
         }).showToast();
         return;
       }

@@ -37,31 +37,81 @@ const genereMap = {
 };
 
 const arrSerie = [
-  "Breaking Bad",
-  "Game of Thrones",
-  "Stranger Things",
-  "The Witcher",
-  "Friends",
-  "The Office",
-  "Sherlock",
   "The Mandalorian",
-  "House of the Dragon",
   "Loki",
-  "Peaky Blinders",
   "Vikings",
-  "Money Heist",
-  "Umbrella Academy",
-  "Lucifer",
+  "Game of Thrones",
+  "The Witcher",
+  "Stranger Things",
+  "Arcane",
+  "Rick and Morty",
+  "BoJack Horseman",
+  "The Crown",
+  "Fargo",
+  "Genius",
+  "The Office",
+  "Brooklyn Nine-Nine",
+  "Parks and Recreation",
+  "Chernobyl",
+  "Planet Earth",
+  "Making a Murderer",
+  "Breaking Bad",
+  "Better Call Saul",
   "Dexter",
   "Westworld",
+  "Stranger Things",
+  "The Expanse",
+  "House of the Dragon",
+  "The Witcher",
+  "His Dark Materials",
+  "Dexter",
+  "Mindhunter",
+  "Sherlock",
   "The Boys",
-  "Arcane",
-  "Chernobyl",
+  "American Horror Story",
+  "The Haunting of Hill House",
+  "Glee",
+  "Crazy Ex-Girlfriend",
+  "Zoey's Extraordinary Playlist",
+  "Peaky Blinders",
+  "Money Heist",
+  "Luther",
+  "Bridgerton",
+  "Outlander",
+  "Emily in Paris",
+  "The Crown",
+  "Vikings",
+  "Marco Polo",
+  "You",
+  "The Night Of",
+  "Bodyguard",
+  "Godless",
+  "Deadwood",
+  "Yellowstone",
+  "Band of Brothers",
+  "The Pacific",
+  "Generation Kill",
+  "Ted Lasso",
+  "Friday Night Lights",
+  "All American",
+  "Stranger Things",
+  "Avatar: The Last Airbender",
+  "The Mandalorian",
+  "Love, Death & Robots",
+  "Adventure Time: Distant Lands",
+  "Star Wars: Visions",
+  "Fargo",
+  "True Detective",
+  "The Leftovers",
+  "Russian Doll",
+  "I May Destroy You",
+  "Euphoria",
 ];
 
 let serieData = [];
 
 function loadFavorites() {
+  if (!user || !user.email) return [];
   return JSON.parse(localStorage.getItem(`preferiti_${user.email}`)) || [];
 }
 
@@ -72,7 +122,7 @@ function saveFavorites(array) {
 async function fetchSerie(titolo) {
   try {
     const res = await fetch(
-      `https://www.omdbapi.com/?apikey=8e73d393&t=${titolo}&type=series`
+      `https://www.omdbapi.com/?apikey=bd9f8fae&t=${titolo}&type=series`
     );
     const data = await res.json();
     return data;
@@ -97,12 +147,39 @@ function renderCard(array) {
         <div class="card-footer">
           <h3 class="card-title">${serie.Title}</h3>
           <div class="card-buttons">
-            <button class="btn"><i class="fa-solid fa-circle-play"></i></button>
-            <button class="btn ${preferitiClass}" name="${serie.Title}"><i class="fa-solid fa-heart"></i></button>
+            <button type="button" class="btn circle-play">
+            <i class="fa-solid fa-circle-play"></i>
+            </button>
+            <button type="button" class="btn ${preferitiClass}" name="${serie.Title}"><i class="fa-solid fa-heart"></i></button>
           </div>
         </div>
       </div>`;
     divSerie.innerHTML += card;
+  });
+
+  document.querySelectorAll(".circle-play").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      console.log("Play cliccato, nessun redirect");
+    });
+  });
+
+  document.querySelectorAll(".card-title").forEach((title) => {
+    title.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      console.log("Titolo cliccato, nessun redirect");
+    });
+  });
+  document.querySelectorAll(".card-footer").forEach((footer) => {
+    footer.addEventListener("click", (e) => {
+      if (!e.target.closest("button") && !e.target.closest(".card-title")) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log("Click su card-footer ignorato");
+      }
+    });
   });
 
   document.querySelectorAll(".card-header").forEach((card) => {
@@ -165,20 +242,15 @@ function renderCard(array) {
 
       if (index === -1) {
         seriePreferiti.push(serie);
-<<<<<<< HEAD
+
         btn.style.color = "red";
-=======
-        btn.style.color = "red"; 
->>>>>>> 8dc849aed9233e140ce38d2bc7e7a3150123e77a
+
         Toastify({
           text: "AGGIUNTO AI PREFERITI!",
           duration: 3000,
           close: true,
-<<<<<<< HEAD
+
           backgroundColor: "linear-gradient(to right, red, black)",
-=======
-          backgroundColor: "linear-gradient(to right, red, black)"
->>>>>>> 8dc849aed9233e140ce38d2bc7e7a3150123e77a
         }).showToast();
       } else {
         seriePreferiti.splice(index, 1);
@@ -187,11 +259,8 @@ function renderCard(array) {
           text: "RIMOSSO DAI PREFERITI!",
           duration: 3000,
           close: true,
-<<<<<<< HEAD
+
           backgroundColor: "linear-gradient(to right, red, black)",
-=======
-          backgroundColor: "linear-gradient(to right, red, black)"
->>>>>>> 8dc849aed9233e140ce38d2bc7e7a3150123e77a
         }).showToast();
       }
 
