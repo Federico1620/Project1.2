@@ -155,7 +155,7 @@ async function start() {
             window.location.href = "/Project1.2/pages/auth/login.html";
           },
         }).showToast();
-        return; //
+        return; 
       }
       if (index === -1) {
         filmPreferiti.push(y);

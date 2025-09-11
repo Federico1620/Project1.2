@@ -165,12 +165,20 @@ function renderCard(array) {
 
       if (index === -1) {
         seriePreferiti.push(serie);
+<<<<<<< HEAD
         btn.style.color = "red";
+=======
+        btn.style.color = "red"; 
+>>>>>>> 8dc849aed9233e140ce38d2bc7e7a3150123e77a
         Toastify({
           text: "AGGIUNTO AI PREFERITI!",
           duration: 3000,
           close: true,
+<<<<<<< HEAD
           backgroundColor: "linear-gradient(to right, red, black)",
+=======
+          backgroundColor: "linear-gradient(to right, red, black)"
+>>>>>>> 8dc849aed9233e140ce38d2bc7e7a3150123e77a
         }).showToast();
       } else {
         seriePreferiti.splice(index, 1);
@@ -179,7 +187,11 @@ function renderCard(array) {
           text: "RIMOSSO DAI PREFERITI!",
           duration: 3000,
           close: true,
+<<<<<<< HEAD
           backgroundColor: "linear-gradient(to right, red, black)",
+=======
+          backgroundColor: "linear-gradient(to right, red, black)"
+>>>>>>> 8dc849aed9233e140ce38d2bc7e7a3150123e77a
         }).showToast();
       }
 
