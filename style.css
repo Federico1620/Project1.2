@@ -413,6 +413,9 @@ h2 {
   letter-spacing: 5px;
   color: white;
 }
+a:visited{
+  color: white;
+}
 
 .card-buttons {
   display: flex;
